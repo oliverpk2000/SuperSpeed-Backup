@@ -1,7 +1,9 @@
 list of necessary endpoints:
     get/
     get/:id
-    post/:id
+    post/
     update/:id
     delete/:id
 each of these endpoints for: category, game, runner and speedrun
+
+Base URL (for now): localhost:xxxx/superspeed/{object}
