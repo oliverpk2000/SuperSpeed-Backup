@@ -1,0 +1,18 @@
+.form-group {
+  width: 25%;
+  margin: auto;
+  border: black solid 1px;
+  border-radius: 20px;
+}
+
+.form-part {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+.form-submit {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
