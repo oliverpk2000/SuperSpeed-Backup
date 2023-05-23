@@ -1,0 +1,7 @@
+list of necessary endpoints:
+    get/
+    get/:id
+    post/:id
+    update/:id
+    delete/:id
+each of these endpoints for: category, game, runner and speedrun
