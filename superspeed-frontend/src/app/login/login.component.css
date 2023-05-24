@@ -16,3 +16,15 @@
   justify-content: center;
   margin: 10px;
 }
+
+@media only screen and (max-width: 1000px) {
+  .form-group {
+    width:70%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .form-group {
+    width:90%;
+  }
+}
