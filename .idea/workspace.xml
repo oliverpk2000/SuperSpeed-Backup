@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f1951cbe-2151-4de5-97de-e2fc4c34694b" name="Changes" comment="added endpoints.txt, working on api in frontend">
+    <list default="true" id="f1951cbe-2151-4de5-97de-e2fc4c34694b" name="Changes" comment="still working on api">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/endpoints.txt" beforeDir="false" afterPath="$PROJECT_DIR$/endpoints.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/superspeed-frontend/src/app/content-api.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/superspeed-frontend/src/app/content-api.service.ts" afterDir="false" />
@@ -83,7 +83,7 @@
       <workItem from="1684244024745" duration="788000" />
       <workItem from="1684245130957" duration="6702000" />
       <workItem from="1684323225655" duration="7064000" />
-      <workItem from="1684847129515" duration="3381000" />
+      <workItem from="1684847129515" duration="5347000" />
     </task>
     <task id="LOCAL-00001" summary="login and stuff">
       <created>1684444331531</created>
@@ -120,7 +120,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684848972056</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="still working on api">
+      <created>1684850616103</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1684850616103</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -143,6 +150,7 @@
     <MESSAGE value="moved files" />
     <MESSAGE value="moved files (fr this time, they where unversioned)" />
     <MESSAGE value="added endpoints.txt, working on api in frontend" />
-    <option name="LAST_COMMIT_MESSAGE" value="added endpoints.txt, working on api in frontend" />
+    <MESSAGE value="still working on api" />
+    <option name="LAST_COMMIT_MESSAGE" value="still working on api" />
   </component>
 </project>
