@@ -4,6 +4,7 @@ import {Observable} from "rxjs";
 import {Category} from "./objects/category";
 import {Game} from "./objects/game";
 import {Runner} from "./objects/runner";
+import {Speedrun} from "./objects/speedrun";
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class ContentApiService {
 
   constructor(private httpClient: HttpClient) {
   }
-
+  //api for categories
   getAllCategories(): Observable<Category[]> {
     return this.httpClient.get<Category[]>(this.baseUrl + "category/");
   }
@@ -33,7 +34,7 @@ export class ContentApiService {
   deleteCategory(category: Category) {
     this.httpClient.delete<Category>(this.baseUrl + "category/" + category.catId)
   }
-
+//api for games
   getAllGames(): Observable<Game[]> {
     return this.httpClient.get<Game[]>(this.baseUrl + "game/");
   }
@@ -53,9 +54,7 @@ export class ContentApiService {
   deleteGame(game: Game) {
     this.httpClient.delete<Game>(this.baseUrl + "game/" + game.gameId)
   }
-
-  //TODO: endpoints for runner
-
+  //api for runners
   getAllRunners(): Observable<Runner[]> {
     return this.httpClient.get<Runner[]>(this.baseUrl + "runner/");
   }
@@ -64,17 +63,35 @@ export class ContentApiService {
     return this.httpClient.get<Runner>(this.baseUrl + "runner/" + id)
   }
 
-  updaterunners(runner: runner) {
-    this.httpClient.put<runner>(this.baseUrl + "runner/" + runner.runnerId, runner);
+  updaterunners(runner: Runner) {
+    this.httpClient.put<Runner>(this.baseUrl + "runner/" + runner.runnerId, runner);
   }
 
-  postrunner(runner: runner) {
-    this.httpClient.post<runner>(this.baseUrl + "runner/", runner);
+  postrunner(runner: Runner) {
+    this.httpClient.post<Runner>(this.baseUrl + "runner/", runner);
   }
 
-  deleterunner(runner: runner) {
-    this.httpClient.delete<runner>(this.baseUrl + "runner/" + runner.runnerId)
+  deleterunner(runner: Runner) {
+    this.httpClient.delete<Runner>(this.baseUrl + "runner/" + runner.runnerId)
+  }
+  //api for speedruns
+  getAllSpeedruns(): Observable<Speedrun[]> {
+    return this.httpClient.get<Speedrun[]>(this.baseUrl + "speedrun/");
   }
 
-  //TODO: endpoints for speedrun
+  getSpeedrun(id: number): Observable<Speedrun> {
+    return this.httpClient.get<Speedrun>(this.baseUrl + "speedrun/" + id)
+  }
+
+  updateSpeedruns(speedrun: Speedrun) {
+    this.httpClient.put<Speedrun>(this.baseUrl + "speedrun/" + speedrun.runId, speedrun);
+  }
+
+  postSpeedrun(speedrun: Speedrun) {
+    this.httpClient.post<Speedrun>(this.baseUrl + "speedrun/", speedrun);
+  }
+
+  deleteSpeedrun(speedrun: Speedrun) {
+    this.httpClient.delete<Speedrun>(this.baseUrl + "speedrun/" + speedrun.runId)
+  }
 }
