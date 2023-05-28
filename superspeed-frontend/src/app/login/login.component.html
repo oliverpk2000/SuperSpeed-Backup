@@ -25,5 +25,10 @@
     <div class="form-submit">
       <button type="submit" [disabled]="!loginForm.valid">login</button>
     </div>
+
+    <div class="form-submit">
+      <button (click)="loginManager.loginAsGuest()">login as guest</button>
+    </div>
   </div>
 </form>
+

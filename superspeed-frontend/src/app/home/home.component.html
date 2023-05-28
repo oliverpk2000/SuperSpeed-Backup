@@ -1,6 +1,8 @@
 <h1>Home page</h1>
 <p>if you're seeing this, you're logged in :)</p>
 <p>imagine some user statistics and leaderboards here</p>
+<div *ngIf="loginManager.getGuestState()"><p>you are logged in as a guest</p></div>
+<div *ngIf="loginManager.checkLoginState()"><p>you are logged in as {{loginManager.getRunner().runnerName}}</p></div>
 <button (click)="logout()">logout</button>
 
 <div *ngFor="let runner of runners">

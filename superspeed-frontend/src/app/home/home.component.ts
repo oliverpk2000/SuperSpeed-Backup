@@ -10,13 +10,16 @@ import {ContentApiService} from "../content-api.service";
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private loginManager: LoginManagementService, public contenApiService:ContentApiService) {
+  constructor(public loginManager: LoginManagementService, public contenApiService:ContentApiService) {
 
   }
   runners:Runner[] = []
 
   ngOnInit(): void {
-    if(!this.loginManager.checkLoginState()){
+    //getting all necessaryassets to show content
+    console.log("here 2 ");
+    if(!this.loginManager.checkLoginState() && !this.loginManager.getGuestState()){
+      console.log("here 3");
       this.loginManager.logout();
     }
 
@@ -26,6 +29,7 @@ export class HomeComponent implements OnInit {
   }
 
   logout() {
+    //back to login screen
     this.loginManager.logout();
   }
 }
