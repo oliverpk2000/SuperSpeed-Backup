@@ -10,7 +10,7 @@ import {Speedrun} from "./objects/speedrun";
   providedIn: 'root'
 })
 export class ContentApiService {
-  baseUrl: string = "https://localhost:7000/api/superspeed/";
+  baseUrl: string = "http://localhost:7000/api/superspeed/";
 
   constructor(private httpClient: HttpClient) {
   }

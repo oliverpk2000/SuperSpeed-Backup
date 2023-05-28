@@ -16,7 +16,6 @@ export class HomeComponent implements OnInit {
   runners:Runner[] = []
 
   ngOnInit(): void {
-    console.log("not this time buddy")
     if(!this.loginManager.checkLoginState()){
       this.loginManager.logout();
     }
