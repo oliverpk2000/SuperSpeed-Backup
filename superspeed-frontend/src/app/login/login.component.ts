@@ -13,9 +13,9 @@ export class LoginComponent implements OnInit {
 
   runnerList: Runner[] = [];
 
-  constructor(private loginManager: LoginManagementService, private contentApi: ContentApiService) {
+  constructor(public loginManager: LoginManagementService, private contentApi: ContentApiService) {
   }
-
+//form setup
   loginForm = new FormGroup({
     runnerId: new FormControl(0),
     runnerName: new FormControl('', [Validators.required]),
@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
       }
     )
   }
-
+//check if login data was valid, if yes redirects to home page
   login() {
     let runner: Runner = this.loginForm.value as Runner;
     if(this.validateRunnerList(runner, this.runnerList)){
@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit {
       this.runnerList = res
     })
   }
-
+//goes through all users and compares their login data
   validateRunnerList(possibleRunner: Runner, realRunnerList: Runner[]) {
     let check = false;
     for (let realRunner of realRunnerList) {
@@ -61,7 +61,7 @@ export class LoginComponent implements OnInit {
     return check;
 
   }
-
+//compares two runner interfaces
   compareRunnerData(runner1: Runner, runner2: Runner): boolean {
     if (runner1.runnerName !== runner2.runnerName) {
       return false;

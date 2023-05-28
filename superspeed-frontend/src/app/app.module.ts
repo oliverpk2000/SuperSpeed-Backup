@@ -9,7 +9,7 @@ import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import { HomeComponent } from './home/home.component';
 import {LoginManagementService} from "./login-management.service";
 import {HttpClientModule} from "@angular/common/http";
-
+//write routes here if you want to add page
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'login', component: LoginComponent},
