@@ -8,6 +8,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import { HomeComponent } from './home/home.component';
 import {LoginManagementService} from "./login-management.service";
+import {HttpClientModule} from "@angular/common/http";
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -24,7 +25,10 @@ const routes: Routes = [
     HomeComponent
   ],
   imports: [
-    BrowserModule, ReactiveFormsModule, RouterModule.forRoot(routes)
+    BrowserModule,
+    ReactiveFormsModule,
+    RouterModule.forRoot(routes),
+    HttpClientModule
   ],
   providers: [LoginManagementService],
   bootstrap: [AppComponent]
