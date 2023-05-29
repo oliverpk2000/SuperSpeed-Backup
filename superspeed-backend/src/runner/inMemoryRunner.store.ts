@@ -4,11 +4,11 @@ import {RunnerStore} from "./runner.store";
 /** Only for testing; real application would use a DB instead of this store object */
 const defRunners: Runner[] = [
   {
-    runnerId: 1,
+    runnerId: 0,
     runnerName: "greg",
-    email: "greg.greg@greg.com",
+    email: "greg.greg@gmail.com",
     dateJoined: new Date(),
-    password: "gregpassword",
+    password: "password",
     adminFlag: 0
   },
   {runnerId: 1,

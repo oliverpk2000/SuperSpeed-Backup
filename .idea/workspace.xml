@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f1951cbe-2151-4de5-97de-e2fc4c34694b" name="Changes" comment="login validation finished, working on guest login next">
+    <list default="true" id="f1951cbe-2151-4de5-97de-e2fc4c34694b" name="Changes" comment="guest login done, commented code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/superspeed-frontend/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/superspeed-frontend/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/superspeed-frontend/src/app/content-api.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/superspeed-frontend/src/app/content-api.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/superspeed-frontend/src/app/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/superspeed-frontend/src/app/home/home.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/superspeed-frontend/src/app/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/superspeed-frontend/src/app/home/home.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/superspeed-frontend/src/app/login-management.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/superspeed-frontend/src/app/login-management.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/superspeed-frontend/src/app/login/login.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/superspeed-frontend/src/app/login/login.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/superspeed-frontend/src/app/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/superspeed-frontend/src/app/login/login.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/superspeed-backend/src/runner/inMemoryRunner.store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/superspeed-backend/src/runner/inMemoryRunner.store.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/superspeed-backend/src/runner/runner.router.ts" beforeDir="false" afterPath="$PROJECT_DIR$/superspeed-backend/src/runner/runner.router.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/superspeed-backend/src/runner/runner.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/superspeed-backend/src/runner/runner.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/superspeed-frontend/src/app/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/superspeed-frontend/src/app/login/login.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -55,7 +51,7 @@
       <recent name="C:\Users\User\WebstormProjects\superspeed-frontend\src\app\objects" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.dev">
+  <component name="RunManager" selected="npm.start">
     <configuration name="Tests (superspeed-frontend)" type="JavaScriptTestRunnerKarma">
       <config-file value="$PROJECT_DIR$/karma.conf.js" />
       <karma-package-dir value="$PROJECT_DIR$/superspeed-frontend/node_modules/@angular/cli" />
@@ -99,8 +95,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.dev" />
         <item itemvalue="npm.start" />
+        <item itemvalue="npm.dev" />
       </list>
     </recent_temporary>
   </component>
@@ -119,7 +115,8 @@
       <workItem from="1684847129515" duration="5407000" />
       <workItem from="1684910760362" duration="3769000" />
       <workItem from="1685277437433" duration="3028000" />
-      <workItem from="1685305647116" duration="2896000" />
+      <workItem from="1685305647116" duration="5304000" />
+      <workItem from="1685383774350" duration="2941000" />
     </task>
     <task id="LOCAL-00001" summary="login and stuff">
       <created>1684444331531</created>
@@ -184,7 +181,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685280386135</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="guest login done, commented code">
+      <created>1685308595262</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1685308595262</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -211,6 +215,7 @@
     <MESSAGE value="still working on api 2" />
     <MESSAGE value="frontend api finished" />
     <MESSAGE value="login validation finished, working on guest login next" />
-    <option name="LAST_COMMIT_MESSAGE" value="login validation finished, working on guest login next" />
+    <MESSAGE value="guest login done, commented code" />
+    <option name="LAST_COMMIT_MESSAGE" value="guest login done, commented code" />
   </component>
 </project>
