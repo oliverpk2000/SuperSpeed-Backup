@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {LoginManagementService} from "../login-management.service";
-import {Runner} from "../objects/runner";
 import {ContentApiService} from "../content-api.service";
+import {Game} from "../objects/game";
 
 @Component({
   selector: 'app-home',
@@ -13,15 +13,15 @@ export class HomeComponent implements OnInit {
   constructor(private loginManager: LoginManagementService, public contenApiService:ContentApiService) {
 
   }
-  runners:Runner[] = []
+  games:Game[] = []
 
   ngOnInit(): void {
     if(!this.loginManager.checkLoginState()){
       this.loginManager.logout();
     }
 
-    this.contenApiService.getAllRunners().subscribe((res)=>{
-      this.runners = res;
+    this.contenApiService.getAllGames().subscribe((res)=>{
+      this.games = res;
     })
   }
 

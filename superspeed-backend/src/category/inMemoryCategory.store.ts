@@ -5,6 +5,10 @@ const defCategorys:Category[] = [
     {
         catId: 0,
         catName: "Any%"
+    },
+    {
+        catId: 1,
+        catName: "Glitchless"
     }
 ]
 

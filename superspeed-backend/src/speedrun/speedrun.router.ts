@@ -10,11 +10,15 @@ export class SpeedrunRouter {
         this.speedrunService = new SpeedrunService();
         this._router = Router();
 
+        //################################# get routes ##########################################
+
+        //gettet alle Speedruns
         this.router.get("/", async (req, res) => {
             const speedruns: Speedrun[] = await this.speedrunService.findAll();
             res.status(200).send(speedruns);
         });
 
+        //gettet den speedrun, dessen speedrunId sid ist
         this.router.get("/:sid", async (req, res) => {
             const sid: number = parseInt(req.params.sid, 10);
             const speedrun: Speedrun = await this.speedrunService.find(sid);
@@ -24,6 +28,18 @@ export class SpeedrunRouter {
             }
             res.status(404).send("item not found");
         });
+
+
+        this.router.get("/game/:sid", async (req, res) => {
+            const sid: number = parseInt(req.params.sid, 10);
+            const speedruns = await this.speedrunService.findAllWithGameId(sid);
+
+            if (speedruns) {
+                return res.status(200).send(speedruns);
+            }
+            res.status(404).send("item not found");
+        });
+
 
         this.router.post("/", async (req, res) => {
             const speedrun: Speedrun = req.body;
@@ -57,6 +73,8 @@ export class SpeedrunRouter {
             const remove = await this.speedrunService.remove(sid);
             res.status(201).json(remove);
         });
+
+
     }
 
     public get router():Router{

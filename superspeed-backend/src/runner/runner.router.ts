@@ -25,6 +25,12 @@ export class RunnerRouter {
             res.status(404).send("item not found");
         });
 
+        this.router.get("/name/:name", async (req, res) => {
+            const name:string = req.params.name
+            let count = this.runnerService.findName(name);
+            res.status(201).json();
+        });
+
         this.router.post("/", async (req, res) => {
             const runner: Runner = req.body;
 
@@ -34,21 +40,6 @@ export class RunnerRouter {
                 const newRunner = await this.runnerService.create(runner);
                 res.status(201).json(newRunner);
             }
-        });
-
-        this.router.post("/bulk", async (req, res) => {
-            const runners: Runner[] = req.body;
-            const valid: Runner[] = [];
-
-            for (let i = 0; i < runners.length; i++) {
-                if (runners[i].runnerName == undefined || runners[i].runnerName.trim() == "" || runners[i].password == undefined || runners[i].password.trim() == "") {
-                    res.status(404).json("not correct format")
-                } else {
-                    let runner: Runner = await this.runnerService.create(runners[i]);
-                    valid.push(runner)
-                }
-            }
-            res.status(201).json(valid);
         });
 
         this.router.put("/:sid", async (req, res) => {

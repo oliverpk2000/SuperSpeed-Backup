@@ -19,6 +19,10 @@ export class RunnerService {
         return await this.exampleRunnerStore.find(sid);
     }
 
+    public async findName(name:string): Promise<number>{
+        return await this.exampleRunnerStore.findName(name);
+    }
+
     public async create(runner:Runner):Promise<Runner>{
         const runners = await this.exampleRunnerStore.findAll();
         runner.runnerId = runners.length + 1;

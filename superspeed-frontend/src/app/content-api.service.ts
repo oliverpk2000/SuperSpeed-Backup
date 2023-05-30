@@ -14,7 +14,7 @@ export class ContentApiService {
 
   constructor(private httpClient: HttpClient) {
   }
-  //api for categories
+  //####################### api for categories ################################
   getAllCategories(): Observable<Category[]> {
     return this.httpClient.get<Category[]>(this.baseUrl + "category/")
       .pipe(catchError(this.handleError));
@@ -39,7 +39,7 @@ export class ContentApiService {
     this.httpClient.delete<Category>(this.baseUrl + "category/" + category.catId)
       .pipe(catchError(this.handleError));
   }
-//api for games
+  //########################### api for games ################################
   getAllGames(): Observable<Game[]> {
     return this.httpClient.get<Game[]>(this.baseUrl + "game/")
       .pipe(catchError(this.handleError));
@@ -64,10 +64,14 @@ export class ContentApiService {
     this.httpClient.delete<Game>(this.baseUrl + "game/" + game.gameId)
       .pipe(catchError(this.handleError));
   }
-  //api for runners
+  //########################## api for runners #################################
   getAllRunners(): Observable<Runner[]> {
     return this.httpClient.get<Runner[]>(this.baseUrl + "runner/")
       .pipe(catchError(this.handleError));
+  }
+
+  getRunnerByName(name:string):Observable<number>{
+    return this.httpClient.get<number>(this.baseUrl + "runner/name/"+name)
   }
 
   getrunner(id: number): Observable<Runner> {
@@ -89,7 +93,7 @@ export class ContentApiService {
     this.httpClient.delete<Runner>(this.baseUrl + "runner/" + runner.runnerId)
       .pipe(catchError(this.handleError));
   }
-  //api for speedruns
+  //############################## api for speedruns #####################################
   getAllSpeedruns(): Observable<Speedrun[]> {
     return this.httpClient.get<Speedrun[]>(this.baseUrl + "speedrun/")
       .pipe(catchError(this.handleError));
@@ -97,6 +101,11 @@ export class ContentApiService {
 
   getSpeedrun(id: number): Observable<Speedrun> {
     return this.httpClient.get<Speedrun>(this.baseUrl + "speedrun/" + id)
+      .pipe(catchError(this.handleError));
+  }
+
+  getAllSpeedrunsWithGameId(id: number): Observable<Speedrun[]> {
+    return this.httpClient.get<Speedrun>(this.baseUrl+"speedrun/game/"+id)
       .pipe(catchError(this.handleError));
   }
 

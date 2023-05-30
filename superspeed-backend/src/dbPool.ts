@@ -2,12 +2,12 @@ import {ConnectionPool} from 'mssql';
 
 export class DBPool{
     //auskommentiert weil geht nicht ohne die DB
-    /**
+
     private static  readonly config = {
-        user: 'Tobias',
-        password: 'ok',
-        server: 'localhost/api/superspeed', // You can use 'localhost\\instance' to connect to named instance
-        database: 'superspeed',
+        user: 'tobias_sprecher',
+        password: 'password',
+        server: 'localhost\\ifsql-01', // You can use 'localhost\\instance' to connect to named instance
+        database: 's_sprecher_tobias_1',
         pool: {
             max: 10,
             min: 0,
@@ -27,5 +27,5 @@ export class DBPool{
     static async connect(){
         this.instance = await (new ConnectionPool(this.config)).connect();
     }
-    */
+
 }

@@ -1,8 +1,10 @@
 <h1>Home page</h1>
 <p>if you're seeing this, you're logged in :)</p>
 <p>imagine some user statistics and leaderboards here</p>
-<button (click)="logout()">logout</button>
+<button (click)="logout()" class="selectionsClass">logout</button>
+<br>
+<br>
+<div *ngFor="let game of games" id="games">
 
-<div *ngFor="let runner of runners">
-  {{runner.runnerName}}
+  <app-game-display [routerLink]="['/home/game/',game.gameId]" [game]="game"></app-game-display>
 </div>

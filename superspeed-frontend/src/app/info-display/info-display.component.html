@@ -1,0 +1,29 @@
+<h1>{{game.gameName}}</h1> <br>
+
+<h2>Speedruns</h2>
+<select name="sortingSelect" [(ngModel)]="sortingVal" (ngModelChange)="sortRuns()" class="selectionsClass">
+  <option id="fts" value="fts">fastest-slowest</option>
+  <option id="stf" value="stf">slowest-fastest</option>
+</select>
+<select name="approvedSelect" [(ngModel)]="approvedVal" class="selectionsClass">
+  <option id="app" value="app">Approved runs</option>
+  <option id="not" value="not">Not approved runs</option>
+  <option id="all" value="all">All runs</option>
+</select>
+<select name="categorySelect" [(ngModel)]="categoryVal" class="selectionsClass">
+  <option *ngFor="let category of categories" [ngValue]="category.catId">{{category.catName}}</option>
+</select>
+
+<br><br><br>
+<table>
+  <tr>
+    <th>rank</th>
+    <th>time</th>
+    <th>runner</th>
+  </tr>
+  <tr *ngFor="let speedrun of conditionSpeedruns(); let i = index">
+    <td>{{i+1}}</td>
+    <td>{{speedrun.timeScore | timeFormat}}</td>
+    <td>{{runners.get(speedrun.runId).runnerName}}</td>
+  </tr>
+</table>

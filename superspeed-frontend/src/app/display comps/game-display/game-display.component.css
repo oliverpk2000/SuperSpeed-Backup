@@ -1,0 +1,11 @@
+p{
+  color: lightgrey;
+  font-size: 10px;
+}
+
+div{
+  border: whitesmoke 6px solid;
+  padding: 10px;
+  border-radius: 5px;
+  width: auto;
+}

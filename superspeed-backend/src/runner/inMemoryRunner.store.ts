@@ -4,11 +4,11 @@ import {RunnerStore} from "./runner.store";
 /** Only for testing; real application would use a DB instead of this store object */
 const defRunners: Runner[] = [
   {
-    runnerId: 1,
+    runnerId: 0,
     runnerName: "greg",
-    email: "greg.greg@greg.com",
+    email: "greg@gmail.com",
     dateJoined: new Date(),
-    password: "gregpassword",
+    password: "greggreg",
     adminFlag: 0
   },
   {runnerId: 1,
@@ -16,7 +16,8 @@ const defRunners: Runner[] = [
     email: "oliver.pecek@gmail.com",
     dateJoined: new Date(),
     password: "password",
-    adminFlag: 0}
+    adminFlag: 0
+  }
 ]
 
 export class InMemoryRunnerStore implements RunnerStore {
@@ -43,6 +44,17 @@ export class InMemoryRunnerStore implements RunnerStore {
 
   public async find(sid: number): Promise<Runner> {
     return this.runnerIndex[sid];
+  }
+
+  public async findName(name:string): Promise<number>{
+    //getting the length of the index notation array
+    let arrayLength = Object.keys(this.runnerIndex).length;
+    for (let i = 0; i < arrayLength; i++) {
+      if(this.runnerIndex[i].runnerName == name){
+        return 1;
+      }
+    }
+    return 0;
   }
 
   public async insert(runner: Runner): Promise<void> {
