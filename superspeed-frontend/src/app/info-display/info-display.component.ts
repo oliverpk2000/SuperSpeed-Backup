@@ -72,16 +72,24 @@ export class InfoDisplayComponent implements OnInit {
     });
   }
 
-  //I don't think I need to write comments for this
+  //sorts the speedruns array based on the selected value of the select
   sortRuns(){
     if(this.sortingVal === "fts"){
       this.speedruns.sort((speedrun1:Speedrun, speedrun2:Speedrun) => speedrun1.timeScore-speedrun2.timeScore);
     } else if(this.sortingVal === "stf"){
       this.speedruns.sort((speedrun1:Speedrun, speedrun2:Speedrun) => speedrun2.timeScore-speedrun1.timeScore);
+    } else if(this.sortingVal === "nto"){
+      //this does not work yet
+      this.speedruns.sort((speedrun1:Speedrun, speedrun2:Speedrun) => speedrun1.runDate.valueOf()-speedrun2.runDate.valueOf());
+    } else if(this.sortingVal === "otn"){
+      //this does not work yet
+      this.speedruns.sort((speedrun1:Speedrun, speedrun2:Speedrun) => speedrun2.runDate.valueOf()-speedrun1.runDate.valueOf());
     }
   }
 
+  //returns an array of the runs, that match the category
   conditionSpeedruns(){
+    //catId is default 0, meaning all any% for example
     let catRuns = this.speedruns.filter((speedrun)=>speedrun.catId===this.categoryVal);
     if(this.approvedVal === "all"){
       return catRuns;

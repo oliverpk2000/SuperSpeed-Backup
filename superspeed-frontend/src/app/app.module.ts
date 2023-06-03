@@ -9,10 +9,11 @@ import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import { HomeComponent } from './home/home.component';
 import {LoginManagementService} from "./login-management.service";
 import {HttpClientModule} from "@angular/common/http";
-import { GameDisplayComponent } from './display comps/game-display/game-display.component';
-import { InfoDisplayComponent } from './info-display/info-display.component';
-import { TimeFormatPipe } from './display comps/time-format.pipe';
-
+import {InfoDisplayComponent} from "./info-display/info-display.component";
+import {TimeFormatPipe} from "./display comps/time-format.pipe";
+import {GameDisplayComponent} from "./display comps/game-display/game-display.component";
+import { ProfileComponent } from './profile/profile.component';
+//write routes here if you want to add page
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'login', component: LoginComponent},
@@ -29,7 +30,8 @@ const routes: Routes = [
     HomeComponent,
     GameDisplayComponent,
     InfoDisplayComponent,
-    TimeFormatPipe
+    TimeFormatPipe,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

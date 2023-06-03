@@ -9,7 +9,7 @@ const defSpeedruns:Speedrun[] = [
         catId: 0,
         runId: 0,
         timeScore: 600000,
-        runDate: new Date(),
+        runDate: new Date("2020/06/06"),
         approved: 1
     },
     {
@@ -18,7 +18,7 @@ const defSpeedruns:Speedrun[] = [
         catId: 0,
         runId: 1,
         timeScore: 100000,
-        runDate: new Date(),
+        runDate: new Date("2023/01/01"),
         approved: 1
     },
     {
@@ -27,7 +27,7 @@ const defSpeedruns:Speedrun[] = [
         catId: 0,
         runId: 2,
         timeScore: 330000,
-        runDate: new Date(),
+        runDate: new Date("2000/12/30"),
         approved: 0
     },
     {

@@ -8,7 +8,7 @@
     <div class="form-part">
       <label for="runnerName">runner name: </label>
       <input class="form-control" id="runnerName"
-             formControlName="runnerName">
+             formControlName="runnerName" [(ngModel)]="runnerNameVal">
     </div>
 
     <div class="form-part">
@@ -25,5 +25,10 @@
     <div class="form-submit">
       <button type="submit" [disabled]="!loginForm.valid" class="selectionsClass">login</button>
     </div>
+
+    <div class="form-submit">
+      <button class="selectionsClass" (click)="loginManager.loginAsGuest()">login as guest</button>
+    </div>
   </div>
 </form>
+

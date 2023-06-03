@@ -4,8 +4,9 @@ p{
 }
 
 div{
-  border: whitesmoke 6px solid;
+  border: midnightblue 6px solid;
   padding: 10px;
   border-radius: 5px;
+  background-color: royalblue;
   width: auto;
 }

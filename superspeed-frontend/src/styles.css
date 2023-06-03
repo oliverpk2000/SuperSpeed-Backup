@@ -19,6 +19,7 @@ html{
   border-radius: 5px;
 }
 
+
 button:disabled{
   background-color: palevioletred;
   color: #eeeeee;

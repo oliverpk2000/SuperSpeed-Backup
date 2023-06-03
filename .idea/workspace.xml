@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f1951cbe-2151-4de5-97de-e2fc4c34694b" name="Changes" comment="frontend api finished">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_05_2023_15_19__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_05_2023_15_19__Changes_.xml" afterDir="false" />
+    <list default="true" id="f1951cbe-2151-4de5-97de-e2fc4c34694b" name="Changes" comment="guest login done, commented code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/superspeed-backend/src/runner/inMemoryRunner.store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/superspeed-backend/src/runner/inMemoryRunner.store.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/superspeed-frontend/src/app/content-api.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/superspeed-frontend/src/app/content-api.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/superspeed-frontend/src/app/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/superspeed-frontend/src/app/home/home.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/superspeed-backend/src/runner/runner.router.ts" beforeDir="false" afterPath="$PROJECT_DIR$/superspeed-backend/src/runner/runner.router.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/superspeed-backend/src/runner/runner.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/superspeed-backend/src/runner/runner.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/superspeed-frontend/src/app/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/superspeed-frontend/src/app/login/login.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,19 +30,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/User/WebstormProjects/superspeed-frontend/src/app/websiteFiles",
-    "nodejs_interpreter_path": "node",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "ts.external.directory.path": "E:\\school\\SuperSpeed\\superspeed-backend\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/WebstormProjects/superspeed-frontend/src/app/websiteFiles&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;E:\\school\\SuperSpeed\\superspeed-backend\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\User\WebstormProjects\superspeed-frontend\src\app\websiteFiles" />
@@ -115,7 +114,9 @@
       <workItem from="1684323225655" duration="7064000" />
       <workItem from="1684847129515" duration="5407000" />
       <workItem from="1684910760362" duration="3769000" />
-      <workItem from="1685277437433" duration="2895000" />
+      <workItem from="1685277437433" duration="3028000" />
+      <workItem from="1685305647116" duration="5304000" />
+      <workItem from="1685383774350" duration="2941000" />
     </task>
     <task id="LOCAL-00001" summary="login and stuff">
       <created>1684444331531</created>
@@ -173,7 +174,21 @@
       <option name="project" value="LOCAL" />
       <updated>1684911240370</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="login validation finished, working on guest login next">
+      <created>1685280386135</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1685280386135</updated>
+    </task>
+    <task id="LOCAL-00010" summary="guest login done, commented code">
+      <created>1685308595262</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1685308595262</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -199,6 +214,8 @@
     <MESSAGE value="still working on api" />
     <MESSAGE value="still working on api 2" />
     <MESSAGE value="frontend api finished" />
-    <option name="LAST_COMMIT_MESSAGE" value="frontend api finished" />
+    <MESSAGE value="login validation finished, working on guest login next" />
+    <MESSAGE value="guest login done, commented code" />
+    <option name="LAST_COMMIT_MESSAGE" value="guest login done, commented code" />
   </component>
 </project>

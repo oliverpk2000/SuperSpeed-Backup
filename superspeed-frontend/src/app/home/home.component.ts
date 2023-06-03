@@ -10,13 +10,16 @@ import {Game} from "../objects/game";
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private loginManager: LoginManagementService, public contenApiService:ContentApiService) {
+  constructor(public loginManager: LoginManagementService, public contenApiService:ContentApiService) {}
 
-  }
-  games:Game[] = []
+  games:Game[] = [];
+  searchbarVal:string = "";
 
   ngOnInit(): void {
-    if(!this.loginManager.checkLoginState()){
+    //getting all necessaryassets to show content
+    console.log("here 2 ");
+    if(!this.loginManager.checkLoginState() && !this.loginManager.getGuestState()){
+      console.log("here 3");
       this.loginManager.logout();
     }
 
@@ -26,6 +29,22 @@ export class HomeComponent implements OnInit {
   }
 
   logout() {
+    //back to login screen
     this.loginManager.logout();
+  }
+
+  matchSearch(){
+    let matching = []
+
+    if(this.searchbarVal===""){
+      return this.games;
+    }
+
+    for (let i = 0; i < this.games.length; i++) {
+      if(this.games[i].gameName.toLowerCase().match(this.searchbarVal.toLowerCase())){
+        matching.push(this.games[i]);
+      }
+    }
+    return matching;
   }
 }

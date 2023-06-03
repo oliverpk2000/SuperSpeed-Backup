@@ -9,7 +9,7 @@ const defRunners: Runner[] = [
     email: "greg@gmail.com",
     dateJoined: new Date(),
     password: "greggreg",
-    adminFlag: 0
+    adminFlag: 1
   },
   {runnerId: 1,
     runnerName: "oliverpk",

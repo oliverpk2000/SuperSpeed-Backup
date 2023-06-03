@@ -2,9 +2,20 @@
 <p>if you're seeing this, you're logged in :)</p>
 <p>imagine some user statistics and leaderboards here</p>
 <button (click)="logout()" class="selectionsClass">logout</button>
-<br>
-<br>
-<div *ngFor="let game of games" id="games">
 
-  <app-game-display [routerLink]="['/home/game/',game.gameId]" [game]="game"></app-game-display>
+<br>
+
+<div *ngIf="loginManager.getGuestState()"><p>you are logged in as a guest</p></div>
+<div *ngIf="loginManager.checkLoginState()"><p>you are logged in as {{loginManager.getRunner().runnerName}}</p></div>
+
+<p *ngIf="loginManager.getRunner().adminFlag===1">you are an admin have fun</p>
+
+<br>
+<div>
+  <br>
+  <input type="text" name="searchbar" if="searchbar" class="form-control" [(ngModel)]="searchbarVal" placeholder="Search for games...">
+  <br>
+  <div *ngFor="let game of matchSearch()" id="games">
+    <app-game-display [routerLink]="['/home/game/',game.gameId]" [game]="game"></app-game-display>
+  </div>
 </div>

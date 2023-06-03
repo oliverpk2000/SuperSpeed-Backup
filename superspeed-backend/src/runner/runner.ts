@@ -4,5 +4,5 @@ export interface Runner {
     email:string;
     dateJoined:Date;
     password:string;
-    adminFlag:0;
+    adminFlag:number;
 }

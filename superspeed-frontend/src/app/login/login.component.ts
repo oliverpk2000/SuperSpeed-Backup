@@ -12,12 +12,14 @@ import {ContentApiService} from "../content-api.service";
 export class LoginComponent implements OnInit {
 
   runnerList: Runner[] = [];
+  runnerNameVal:string = "";
 
-  constructor(private loginManager: LoginManagementService, private contentApi: ContentApiService) {
+  constructor(public loginManager: LoginManagementService, private contentApi: ContentApiService) {
   }
 
   //Login Form, (reactive form)
 
+//form setup
   loginForm = new FormGroup({
     //database will automatically set the id
     runnerId: new FormControl(0),
@@ -29,9 +31,8 @@ export class LoginComponent implements OnInit {
     dateJoined: new FormControl(new Date()),
     //password must be at least 8 letters and max 50 letters and must contain one capital letter
     password: new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(50)]),
-    adminFlag: new FormControl(0),
+    adminFlag: new FormControl(),
   })
-
 
   ngOnInit(): void {
     this.getRunners();
@@ -45,13 +46,13 @@ export class LoginComponent implements OnInit {
     )
   }
 
+//check if login data was valid, if yes redirects to home page
   login() {
     let runner: Runner = this.loginForm.value as Runner;
-    if(this.validateRunnerList(runner, this.runnerList)){
+    if (this.validateRunnerList(runner, this.runnerList)) {
       this.loginManager.setRunner(runner);
       this.loginManager.login()
-    }else{
-      console.log("aint happenin");
+    } else {
     }
   }
 
@@ -62,25 +63,31 @@ export class LoginComponent implements OnInit {
     })
   }
 
+//goes through all users and compares their login data
   validateRunnerList(possibleRunner: Runner, realRunnerList: Runner[]) {
-    let check = false;
-    for (let realRunner of realRunnerList) {
-      check = this.compareRunnerData(possibleRunner, realRunner);
-    }
-    return check;
-
+    let match = this.findRunnerWithSameEmail(possibleRunner, realRunnerList);
+    return this.compareRunnerData(possibleRunner, match);
   }
 
+//compares two runner interfaces
   compareRunnerData(runner1: Runner, runner2: Runner): boolean {
     console.log(runner1)
     console.log(runner2)
     if (runner1.runnerName !== runner2.runnerName) {
       return false;
     }
+
     if (runner1.email !== runner2.email) {
+      console.log("emails: " + runner1.email === runner2.email);
       return false;
     }
-    return runner1.password === runner2.password;
+    console.log("passwords: " + runner1.password == runner2.password);
+    console.log("passwords: " + runner1.password + ", " + runner2.password);
+    return runner1.password == runner2.password;
+  }
+
+  findRunnerWithSameEmail(possibleRunner:Runner, realRunnerList:Runner[]) {
+    return realRunnerList.filter(runner =>runner.email === possibleRunner.email)[0];
   }
 }
 /**

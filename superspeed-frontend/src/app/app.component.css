@@ -12,6 +12,60 @@
   color: white;
 }
 
+/* Dropdown menu taken from W3C and style adapted */
+/* https://www.w3schools.com/howto/howto_css_dropdown_navbar.asp */
+
+/* Position of the dropdown Button */
+.dropdown {
+  float: right;
+}
+
+/* style of the Dropdown Button*/
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit; /* Important for vertical align on mobile phones */
+  margin: 0; /* Important for vertical align on mobile phones */
+}
+
+/* style of dropdown button on hover */
+.dropdown:hover .dropbtn {
+  background-color: royalblue;
+}
+
+/* style of the options in the dropdown menu */
+.dropdown-content {
+  /* prevents from showing when not hovered */
+  display: none;
+  /* prevents navbar from expanding to the size of the list */
+  position: absolute;
+  background-color: #202124;
+  min-width: 160px;
+}
+
+
+/* styles of the links in the dropdown menu */
+.dropdown-content a {
+  color: #eeeeee;
+  padding: 12px 16px;
+  /* removes the underline of a link */
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+/* changes the appearance of an element when hovered */
+.dropdown-content a:hover {
+  background-color: royalblue;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
 
 .content {
   padding-top: 50px;

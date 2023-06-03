@@ -123,7 +123,7 @@ export class ContentApiService {
     this.httpClient.delete<Speedrun>(this.baseUrl + "speedrun/" + speedrun.runId)
       .pipe(catchError(this.handleError));
   }
-
+//error handling
   private handleError(error: HttpErrorResponse):Observable<any> {
     if(error.status=== 0) {
       console.error('An erroroccurred:', error.error);

@@ -1,7 +1,20 @@
 <div class="navbar">
   <img src="../assets/images/SuperSpeedCropped.png" [routerLink]="['/home']">
+
+    <div class="dropdown">
+      <button class="dropbtn">Options
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="http://localhost:4200/profile">Profile</a>
+        <a [href]=profileLink>Logout</a>
+        <a href="http://localhost:4200/stopwatch">Stopwatch</a>
+      </div>
+    </div>
 </div>
 
+<br>
+<br>
 <div class="content">
   <router-outlet></router-outlet>
 </div>

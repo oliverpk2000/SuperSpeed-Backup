@@ -8,6 +8,7 @@ import {Runner} from "./objects/runner";
 export class LoginManagementService {
   private loginState: boolean = false;
   private runner: Runner = {runnerId:0, runnerName:'', email:'', dateJoined: new Date(), adminFlag: 0, password: ''};
+  private guestState: boolean = true;
 
   constructor(private router: Router) {
   }
@@ -21,11 +22,13 @@ export class LoginManagementService {
   }
 
   login() {
+    this.setGuestState(false);
     this.loginState = true;
     this.router.navigate(['home'])
   }
 
   logout() {
+    this.setGuestState(false);
     this.loginState = false;
     this.router.navigate(['login'])
 
@@ -33,6 +36,17 @@ export class LoginManagementService {
 
   checkLoginState() {
     return this.loginState;
+  }
+
+  setGuestState(state: boolean){
+    this.guestState = state;
+  }
+  loginAsGuest(){
+    this.setGuestState(true);
+    this.router.navigate(['home'])
+  }
+  getGuestState(){
+    return this.guestState;
   }
 }
 
