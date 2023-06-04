@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Game} from "../objects/game";
 import {ContentApiService} from "../content-api.service";
 import {ActivatedRoute} from "@angular/router";
@@ -15,35 +15,37 @@ import {Category} from "../objects/category";
 
 /** written by Tobias Sprecher */
 export class InfoDisplayComponent implements OnInit {
-  game:Game = {gameId: 0, gameName: "", datePublished:new Date()};
-  speedruns:Speedrun[] = [];
-  runners:Map<number, Runner> = new Map<number, Runner>();
-  categories:Category[] = [];
+  game: Game = {gameId: 0, gameName: "", datePublished: new Date()};
+  speedruns: Speedrun[] = [];
+  runners: Map<number, Runner> = new Map<number, Runner>();
+  categories: Category[] = [];
 
-  sortingVal:string="fts";
-  approvedVal:string="app";
-  categoryVal:number=0;
+  sortingVal: string = "fts";
+  approvedVal: string = "app";
+  categoryVal: number = 0;
 
 
-  constructor(public contentApiService:ContentApiService, private route: ActivatedRoute) { }
+  constructor(public contentApiService: ContentApiService, private route: ActivatedRoute) {
+  }
 
   //Activated route to read from the URL
   ngOnInit(): void {
-    this.route.params.subscribe(params =>{
+    this.route.params.subscribe(params => {
       //getting gameId from URL -- format /superspeed/game/*gameId*
       const gameId = Number(params['gameId']);
       //getting the game, with this gameId
-      this.contentApiService.getGame(gameId).subscribe((res)=>{
+      this.contentApiService.getGame(gameId).subscribe((res) => {
         this.game = res;
       });
       //getting speedruns, that have the same gameId as this game
-      this.contentApiService.getAllSpeedrunsWithGameId(gameId).subscribe((res) =>{
+      this.contentApiService.getAllSpeedrunsWithGameId(gameId).subscribe((res) => {
+        res.forEach(speedrun => speedrun.runDate = new Date(speedrun.runDate))
         this.speedruns = res;
         //making map of all speedruns and their runner;
         this.getRunnersForSpeedun();
       });
       //getting all the categories
-      this.contentApiService.getAllCategories().subscribe((res)=>{
+      this.contentApiService.getAllCategories().subscribe((res) => {
         this.categories = res;
       });
     })
@@ -73,31 +75,29 @@ export class InfoDisplayComponent implements OnInit {
   }
 
   //sorts the speedruns array based on the selected value of the select
-  sortRuns(){
-    if(this.sortingVal === "fts"){
-      this.speedruns.sort((speedrun1:Speedrun, speedrun2:Speedrun) => speedrun1.timeScore-speedrun2.timeScore);
-    } else if(this.sortingVal === "stf"){
-      this.speedruns.sort((speedrun1:Speedrun, speedrun2:Speedrun) => speedrun2.timeScore-speedrun1.timeScore);
-    } else if(this.sortingVal === "nto"){
-      //this does not work yet
-      this.speedruns.sort((speedrun1:Speedrun, speedrun2:Speedrun) => speedrun1.runDate.valueOf()-speedrun2.runDate.valueOf());
-    } else if(this.sortingVal === "otn"){
-      //this does not work yet
-      this.speedruns.sort((speedrun1:Speedrun, speedrun2:Speedrun) => speedrun2.runDate.valueOf()-speedrun1.runDate.valueOf());
+  sortRuns() {
+    if (this.sortingVal === "fts") {
+      this.speedruns.sort((speedrun1: Speedrun, speedrun2: Speedrun) => speedrun1.timeScore - speedrun2.timeScore);
+    } else if (this.sortingVal === "stf") {
+      this.speedruns.sort((speedrun1: Speedrun, speedrun2: Speedrun) => speedrun2.timeScore - speedrun1.timeScore);
+    } else if (this.sortingVal === "nto") {
+      this.speedruns.sort((speedrun1: Speedrun, speedrun2: Speedrun) => speedrun1.runDate.getTime() - speedrun2.runDate.getTime());
+    } else if (this.sortingVal === "otn") {
+      this.speedruns.sort((speedrun1: Speedrun, speedrun2: Speedrun) => speedrun2.runDate.getTime() - speedrun1.runDate.getTime());
     }
   }
 
   //returns an array of the runs, that match the category
-  conditionSpeedruns(){
+  conditionSpeedruns() {
     //catId is default 0, meaning all any% for example
-    let catRuns = this.speedruns.filter((speedrun)=>speedrun.catId===this.categoryVal);
-    if(this.approvedVal === "all"){
+    let catRuns = this.speedruns.filter((speedrun) => speedrun.catId === this.categoryVal);
+    if (this.approvedVal === "all") {
       return catRuns;
-    } else if(this.approvedVal === "app"){
-      let appCatRuns = catRuns.filter((speedrun)=>speedrun.approved===1);
+    } else if (this.approvedVal === "app") {
+      let appCatRuns = catRuns.filter((speedrun) => speedrun.approved === 1);
       return appCatRuns;
     } else {
-      let appCatRuns = catRuns.filter((speedrun)=>speedrun.approved===0);
+      let appCatRuns = catRuns.filter((speedrun) => speedrun.approved === 0);
       return appCatRuns;
     }
   }

@@ -10,7 +10,7 @@ import {Game} from "../objects/game";
 })
 export class HomeComponent implements OnInit {
 
-  constructor(public loginManager: LoginManagementService, public contenApiService:ContentApiService) {}
+  constructor(public loginManager: LoginManagementService, public contentApiService:ContentApiService) {}
 
   games:Game[] = [];
   searchbarVal:string = "";
@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
   }
 
   update(){
-    this.contenApiService.getAllGames().subscribe((res)=>{
+    this.contentApiService.getAllGames().subscribe((res)=>{
       this.games = res;
     })
   }
@@ -52,8 +52,8 @@ export class HomeComponent implements OnInit {
   }
 
   addGame(){
-    this.contenApiService.postGame({gameId:0, gameName: this.gameName, datePublished:this.releaseDate}).subscribe()
-    this.gameName=""
+    this.contentApiService.postGame({gameId:0, gameName: this.gameName, datePublished:this.releaseDate}).subscribe()
+    this.gameName="";
     this.releaseDate = new Date();
     this.update();
   }

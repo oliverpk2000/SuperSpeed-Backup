@@ -48,7 +48,6 @@ export class LoginComponent implements OnInit {
 //check if login data was valid, if yes redirects to home page
   login() {
     let runner: Runner = this.loginForm.value as Runner;
-
     if (this.validateRunnerList(runner, this.runnerList)) {
       let runnerInList = this.getRealRunner(runner)
       this.loginManager.setRunner(runnerInList);
