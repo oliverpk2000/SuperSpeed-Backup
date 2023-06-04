@@ -1,4 +1,5 @@
 <div id="game">
   <h1>{{game.gameName}}</h1>
   <p>{{game.datePublished}}</p>
+  <button *ngIf="loginManager.getRunner().adminFlag===1" class="selectionsClass deleteBtn" (click)="deleteGame($event)">Delete</button>
 </div>

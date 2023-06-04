@@ -14,15 +14,18 @@ export class HomeComponent implements OnInit {
 
   games:Game[] = [];
   searchbarVal:string = "";
+  gameName:string;
+  releaseDate = new Date();
 
   ngOnInit(): void {
     //getting all necessaryassets to show content
-    console.log("here 2 ");
     if(!this.loginManager.checkLoginState() && !this.loginManager.getGuestState()){
-      console.log("here 3");
       this.loginManager.logout();
     }
+    this.update();
+  }
 
+  update(){
     this.contenApiService.getAllGames().subscribe((res)=>{
       this.games = res;
     })
@@ -46,5 +49,12 @@ export class HomeComponent implements OnInit {
       }
     }
     return matching;
+  }
+
+  addGame(){
+    this.contenApiService.postGame({gameId:0, gameName: this.gameName, datePublished:this.releaseDate}).subscribe()
+    this.gameName=""
+    this.releaseDate = new Date();
+    this.update();
   }
 }

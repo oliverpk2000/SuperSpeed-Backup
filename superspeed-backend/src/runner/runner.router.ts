@@ -15,9 +15,9 @@ export class RunnerRouter {
             res.status(200).send(runners);
         });
 
-        this.router.get("/:sid", async (req, res) => {
-            const sid: number = parseInt(req.params.sid, 10);
-            const runner: Runner = await this.runnerService.find(sid);
+        this.router.get("/:runnerId", async (req, res) => {
+            const runnerId: number = parseInt(req.params.runnerId, 10);
+            const runner: Runner = await this.runnerService.find(runnerId);
 
             if (runner) {
                 return res.status(200).send(runner);
@@ -25,11 +25,20 @@ export class RunnerRouter {
             res.status(404).send("item not found");
         });
 
-        this.router.get("/name/:name", async (req, res) => {
-            const name:string = req.params.name
-            let count = this.runnerService.findName(name);
-            res.status(201).json();
-        });
+        // this.router.get("/name/:name", async (req, res) => {
+        //     const name:string = req.params.name
+        //     let count = this.runnerService.findName(name);
+        //     res.status(201).json();
+        // });
+        //
+        // this.router.get("/same", async (req, res) => {
+        //     const runnerName: string = req.query.runnerName as string;
+        //     const email: string = req.query.email as string;
+        //     const password: string = req.query.password as string;
+        //
+        //     const matchingRunner = await this.runnerService.findSameObject(runnerName, email, password);
+        //     res.status(201).json(matchingRunner);
+        // });
 
         this.router.post("/", async (req, res) => {
             const runner: Runner = req.body;
@@ -42,10 +51,10 @@ export class RunnerRouter {
             }
         });
 
-        this.router.put("/:sid", async (req, res) => {
-            const sid: number = parseInt(req.params.sid, 10);
+        this.router.put("/:runnerId", async (req, res) => {
+            const runnerId: number = parseInt(req.params.runnerId, 10);
             const runnerChanged: Runner = req.body;
-            const runner: Runner = await this.runnerService.find(sid);
+            const runner: Runner = await this.runnerService.find(runnerId);
 
             if (runnerChanged.runnerName == undefined || runnerChanged.runnerName.trim() == "" || runnerChanged.password == undefined || runnerChanged.password.trim() == "") {
                 res.status(404).json("not correct format")
@@ -55,9 +64,9 @@ export class RunnerRouter {
             }
         });
 
-        this.router.delete("/:sid", async (req, res) => {
-            const sid: number = parseInt(req.params.sid, 10);
-            const remove = await this.runnerService.remove(sid);
+        this.router.delete("/:runnerId", async (req, res) => {
+            const runnerId: number = parseInt(req.params.runnerId, 10);
+            const remove = await this.runnerService.remove(runnerId);
             res.status(201).json(remove);
         });
     }

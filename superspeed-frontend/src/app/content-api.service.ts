@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpErrorResponse} from "@angular/common/http";
+import {HttpClient, HttpErrorResponse, HttpParams} from "@angular/common/http";
 import {catchError, Observable, throwError} from "rxjs";
 import {Category} from "./objects/category";
 import {Game} from "./objects/game";
@@ -25,18 +25,18 @@ export class ContentApiService {
       .pipe(catchError(this.handleError));
   }
 
-  updateCategory(category: Category) {
-    this.httpClient.put<Category>(this.baseUrl + "category/" + category.catId, category)
+  updateCategory(category: Category):Observable<Category> {
+    return this.httpClient.put<Category>(this.baseUrl + "category/" + category.catId, category)
       .pipe(catchError(this.handleError));
   }
 
-  postCategory(category: Category) {
-    this.httpClient.post<Category>(this.baseUrl + "category/", category)
+  postCategory(category: Category):Observable<Category> {
+    return this.httpClient.post<Category>(this.baseUrl + "category/", category)
       .pipe(catchError(this.handleError));
   }
 
-  deleteCategory(category: Category) {
-    this.httpClient.delete<Category>(this.baseUrl + "category/" + category.catId)
+  deleteCategory(category: Category):Observable<Category> {
+    return this.httpClient.delete<Category>(this.baseUrl + "category/" + category.catId)
       .pipe(catchError(this.handleError));
   }
   //########################### api for games ################################
@@ -50,18 +50,18 @@ export class ContentApiService {
       .pipe(catchError(this.handleError));
   }
 
-  updateGames(game: Game) {
-    this.httpClient.put<Game>(this.baseUrl + "game/" + game.gameId, game)
+  updateGames(game: Game):Observable<Game> {
+    return this.httpClient.put<Game>(this.baseUrl + "game/" + game.gameId, game)
       .pipe(catchError(this.handleError));
   }
 
-  postGame(game: Game) {
-    this.httpClient.post<Game>(this.baseUrl + "game/", game)
+  postGame(game: Game):Observable<Game> {
+    return this.httpClient.post<Game>(this.baseUrl + "game/", game)
       .pipe(catchError(this.handleError));
   }
 
-  deleteGame(game: Game) {
-    this.httpClient.delete<Game>(this.baseUrl + "game/" + game.gameId)
+  deleteGame(game: Game):Observable<Game> {
+    return this.httpClient.delete<Game>(this.baseUrl + "game/" + game.gameId)
       .pipe(catchError(this.handleError));
   }
   //########################## api for runners #################################
@@ -70,27 +70,37 @@ export class ContentApiService {
       .pipe(catchError(this.handleError));
   }
 
-  getRunnerByName(name:string):Observable<number>{
-    return this.httpClient.get<number>(this.baseUrl + "runner/name/"+name)
-  }
+  // getRunnerByName(name:string):Observable<number>{
+  //   return this.httpClient.get<number>(this.baseUrl + "runner/name/"+name)
+  // }
+  //
+  // getSameObject(runner:Runner):Observable<Runner | null>{
+  //   const params = new HttpParams()
+  //     .set('runnerName', runner.runnerName)
+  //     .set('email', runner.email)
+  //     .set('password', runner.password);
+  //
+  //   return this.httpClient.get<Runner>(this.baseUrl+"runner/same", {params})
+  //     .pipe(catchError(this.handleError))
+  // }
 
   getrunner(id: number): Observable<Runner> {
     return this.httpClient.get<Runner>(this.baseUrl + "runner/" + id)
       .pipe(catchError(this.handleError));
   }
 
-  updaterunners(runner: Runner) {
-    this.httpClient.put<Runner>(this.baseUrl + "runner/" + runner.runnerId, runner)
+  updaterunner(runner: Runner): Observable<Runner> {
+    return this.httpClient.put<Runner>(this.baseUrl + "runner/" + runner.runnerId, runner)
       .pipe(catchError(this.handleError));
   }
 
-  postrunner(runner: Runner) {
-    this.httpClient.post<Runner>(this.baseUrl + "runner/", runner)
+  postrunner(runner: Runner):Observable<Runner> {
+    return this.httpClient.post<Runner>(this.baseUrl + "runner/", runner)
       .pipe(catchError(this.handleError));
   }
 
-  deleterunner(runner: Runner) {
-    this.httpClient.delete<Runner>(this.baseUrl + "runner/" + runner.runnerId)
+  deleterunner(runner: Runner):Observable<Runner> {
+    return this.httpClient.delete<Runner>(this.baseUrl + "runner/" + runner.runnerId)
       .pipe(catchError(this.handleError));
   }
   //############################## api for speedruns #####################################
@@ -109,18 +119,18 @@ export class ContentApiService {
       .pipe(catchError(this.handleError));
   }
 
-  updateSpeedruns(speedrun: Speedrun) {
-    this.httpClient.put<Speedrun>(this.baseUrl + "speedrun/" + speedrun.runId, speedrun)
+  updateSpeedruns(speedrun: Speedrun):Observable<Speedrun> {
+    return this.httpClient.put<Speedrun>(this.baseUrl + "speedrun/" + speedrun.runId, speedrun)
       .pipe(catchError(this.handleError));
   }
 
-  postSpeedrun(speedrun: Speedrun) {
-    this.httpClient.post<Speedrun>(this.baseUrl + "speedrun/", speedrun)
+  postSpeedrun(speedrun: Speedrun):Observable<Speedrun> {
+    return this.httpClient.post<Speedrun>(this.baseUrl + "speedrun/", speedrun)
       .pipe(catchError(this.handleError));
   }
 
-  deleteSpeedrun(speedrun: Speedrun) {
-    this.httpClient.delete<Speedrun>(this.baseUrl + "speedrun/" + speedrun.runId)
+  deleteSpeedrun(speedrun: Speedrun):Observable<Speedrun> {
+    return this.httpClient.delete<Speedrun>(this.baseUrl + "speedrun/" + speedrun.runId)
       .pipe(catchError(this.handleError));
   }
 //error handling

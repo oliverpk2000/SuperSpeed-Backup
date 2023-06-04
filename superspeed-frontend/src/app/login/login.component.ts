@@ -12,7 +12,6 @@ import {ContentApiService} from "../content-api.service";
 export class LoginComponent implements OnInit {
 
   runnerList: Runner[] = [];
-  runnerNameVal:string = "";
 
   constructor(public loginManager: LoginManagementService, private contentApi: ContentApiService) {
   }
@@ -49,8 +48,10 @@ export class LoginComponent implements OnInit {
 //check if login data was valid, if yes redirects to home page
   login() {
     let runner: Runner = this.loginForm.value as Runner;
+
     if (this.validateRunnerList(runner, this.runnerList)) {
-      this.loginManager.setRunner(runner);
+      let runnerInList = this.getRealRunner(runner)
+      this.loginManager.setRunner(runnerInList);
       this.loginManager.login()
     } else {
     }
@@ -88,6 +89,15 @@ export class LoginComponent implements OnInit {
 
   findRunnerWithSameEmail(possibleRunner:Runner, realRunnerList:Runner[]) {
     return realRunnerList.filter(runner =>runner.email === possibleRunner.email)[0];
+  }
+
+  getRealRunner(runner1:Runner){
+    for (let i = 0; i < this.runnerList.length; i++) {
+      if(this.runnerList[i].runnerName === runner1.runnerName && this.runnerList[i].email === runner1.email && this.runnerList[i].password === runner1.password){
+         return this.runnerList[i];
+      }
+    }
+    return null;
   }
 }
 /**

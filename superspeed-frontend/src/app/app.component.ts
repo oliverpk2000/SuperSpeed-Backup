@@ -12,6 +12,11 @@ export class AppComponent {
 
   title = 'superspeed-frontend';
   //does not work yet
+
   profileLink:string = "http://localhost:4200/profile/"+this.loginManager.getRunner().runnerId
 
+  ngDoCheck():void{
+    const runnerId = this.loginManager.getRunner()?.runnerId;
+    this.profileLink = "http://localhost:4200/profile/"+runnerId;
+  }
 }

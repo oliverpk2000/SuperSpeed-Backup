@@ -10,12 +10,19 @@
 
 <p *ngIf="loginManager.getRunner().adminFlag===1">you are an admin have fun</p>
 
+
 <br>
 <div>
   <br>
   <input type="text" name="searchbar" if="searchbar" class="form-control" [(ngModel)]="searchbarVal" placeholder="Search for games...">
+  <div id="admingControl" *ngIf="loginManager.getRunner().adminFlag===1">
+    <input type="text" class="form-control" [(ngModel)]="gameName">
+    <input type="date" class="form-control" [(ngModel)]="releaseDate">
+    <button (click)="addGame()" class="selectionsClass">Add Game</button>
+  </div>
   <br>
+  <h1>Games</h1>
   <div *ngFor="let game of matchSearch()" id="games">
-    <app-game-display [routerLink]="['/home/game/',game.gameId]" [game]="game"></app-game-display>
+    <app-game-display [routerLink]="['/home/game/',game.gameId]" [game]="game" (updateCall)="update()"></app-game-display>
   </div>
 </div>

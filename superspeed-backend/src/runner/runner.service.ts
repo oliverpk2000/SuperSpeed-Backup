@@ -18,9 +18,13 @@ export class RunnerService {
     return await this.exampleRunnerStore.find(sid);
   }
 
-  public async findName(name:string): Promise<number>{
-      return await this.exampleRunnerStore.findName(name);
-  }
+  // public async findName(name:string): Promise<number>{
+  //     return await this.exampleRunnerStore.findName(name);
+  // }
+  //
+  // public async findSameObject(runnerName:string, email:string, password:string): Promise<Runner>{
+  //   return await this.exampleRunnerStore.findSameObject(runnerName, email, password);
+  // }
 
   public async create(runner:Runner):Promise<Runner>{
       const runners = await this.exampleRunnerStore.findAll();

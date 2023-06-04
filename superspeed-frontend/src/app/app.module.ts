@@ -18,6 +18,7 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'home/game/:gameId', component: InfoDisplayComponent},
+  {path: 'profile/:runnerId', component: ProfileComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: '**', component: PageNotFoundComponent}
 ];

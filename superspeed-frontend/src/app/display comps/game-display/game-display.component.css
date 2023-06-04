@@ -10,3 +10,7 @@ div{
   background-color: royalblue;
   width: auto;
 }
+
+.deleteBtn{
+  background-color: lightcoral;
+}
