@@ -1,0 +1,44 @@
+<button id="changeBtn" class="selectionsClass" (click)="changeEvent()" [disabled]="inChange">Change Information</button>
+<button id="applyBtn" class="selectionsClass" (click)="applyEvent()" [disabled]="!inChange">Apply Changes</button>
+
+<div id="outerBox">
+  <div class="innerBox">
+    <h1>runnerId</h1>
+    <br>
+    <p>{{runner.runnerId}}</p>
+  </div>
+
+  <div class="innerBox">
+    <h1>runnerName</h1>
+    <br>
+    <p *ngIf="!inChange">{{runner.runnerName}}</p>
+    <input class="selectionsClass" *ngIf="inChange" [(ngModel)]= runnerName>
+
+  </div>
+
+  <div class="innerBox">
+    <h1>email</h1>
+    <br>
+    <p *ngIf="!inChange">{{runner.email}}</p>
+    <input class="selectionsClass" *ngIf="inChange" [(ngModel)]= email>
+  </div>
+
+  <div class="innerBox">
+    <h1>password</h1>
+    <br>
+    <p *ngIf="!inChange">{{runner.password}}</p>
+    <input class="selectionsClass" *ngIf="inChange" [(ngModel)]= password>
+  </div>
+
+  <div class="innerBox">
+    <h1>date joined</h1>
+    <br>
+    <p>{{runner.dateJoined |  date}}</p>
+  </div>
+
+  <div class="innerBox">
+    <h1>admin</h1>
+    <br>
+    <p>{{runner.adminFlag}}</p>
+  </div>
+</div>

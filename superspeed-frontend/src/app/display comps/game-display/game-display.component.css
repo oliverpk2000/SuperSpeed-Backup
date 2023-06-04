@@ -1,0 +1,16 @@
+p{
+  color: lightgrey;
+  font-size: 10px;
+}
+
+div{
+  border: midnightblue 6px solid;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: royalblue;
+  width: auto;
+}
+
+.deleteBtn{
+  background-color: lightcoral;
+}

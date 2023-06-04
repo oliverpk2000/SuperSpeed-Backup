@@ -19,6 +19,10 @@ export class SpeedrunService {
         return await this.exampleSpeedrunStore.find(sid);
     }
 
+    public async findAllWithGameId(sid: number): Promise<Speedrun[]>{
+        return await this.exampleSpeedrunStore.findAllWithGameId(sid);
+    }
+
     public async create(speedrun:Speedrun):Promise<Speedrun>{
         const speedruns = await this.exampleSpeedrunStore.findAll();
         speedrun.runId = speedruns.length + 1;

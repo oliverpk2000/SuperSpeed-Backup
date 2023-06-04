@@ -5,5 +5,5 @@ export interface Speedrun {
   runId: number;
   timeScore: number;
   runDate: Date;
-  approved: boolean;
+  approved: number;
 }

@@ -6,6 +6,11 @@ const defGames:Game[] = [
         gameId: 0,
         gameName: "gregs Adventure",
         datePublished: new Date()
+    },
+    {
+        gameId: 1,
+        gameName: "Martin Cherrytree und der Stein der Weisen",
+        datePublished: new Date('1999/04/12')
     }
 ]
 

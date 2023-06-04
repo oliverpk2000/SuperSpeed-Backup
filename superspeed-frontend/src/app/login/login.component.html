@@ -23,7 +23,11 @@
              formControlName="password">
     </div>
     <div class="form-submit">
-      <button type="submit" [disabled]="!loginForm.valid">login</button>
+      <button type="submit" [disabled]="!loginForm.valid" class="selectionsClass">login</button>
+    </div>
+
+    <div class="form-submit">
+      <button class="selectionsClass" (click)="loginManager.loginAsGuest()">login as guest</button>
     </div>
 
     <div class="form-submit">

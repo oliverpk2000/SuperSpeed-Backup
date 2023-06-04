@@ -1,0 +1,15 @@
+.innerBox{
+  margin: 10px;
+  padding:10px;
+  border-bottom: #eeeeee solid 3px;
+  width: 60%;
+}
+
+#outerBox{
+  text-align: center;
+}
+
+h1{
+  color: #14d3c3;
+  text-decoration: underline;
+}

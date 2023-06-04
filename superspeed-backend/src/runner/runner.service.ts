@@ -18,12 +18,20 @@ export class RunnerService {
     return await this.exampleRunnerStore.find(sid);
   }
 
-  public async create(runner: Runner): Promise<Runner> {
-    const runners = await this.exampleRunnerStore.findAll();
-    runner.runnerId = runners.length + 1;
-    await this.exampleRunnerStore.insert(runner);
+  // public async findName(name:string): Promise<number>{
+  //     return await this.exampleRunnerStore.findName(name);
+  // }
+  //
+  // public async findSameObject(runnerName:string, email:string, password:string): Promise<Runner>{
+  //   return await this.exampleRunnerStore.findSameObject(runnerName, email, password);
+  // }
 
-    return runner;
+  public async create(runner:Runner):Promise<Runner>{
+      const runners = await this.exampleRunnerStore.findAll();
+      runner.runnerId = runners.length + 1;
+      await this.exampleRunnerStore.insert(runner);
+
+      return runner;
   }
 
   public async edit(runner: Runner, runnerChanged: Runner): Promise<Runner> {

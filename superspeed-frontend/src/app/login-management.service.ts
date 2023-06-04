@@ -7,7 +7,7 @@ import {Runner} from "./objects/runner";
 })
 export class LoginManagementService {
   private loginState: boolean = false;
-  private runner: Runner = {runnerId:0, runnerName:'', email:'', dateJoined: new Date(), adminFlag: false, password: ''};
+  private runner: Runner = {runnerId:-1, runnerName:'guest', email:'', dateJoined: new Date(), adminFlag: 0, password: ''};
   private guestState: boolean = true;
 
   constructor(private router: Router) {

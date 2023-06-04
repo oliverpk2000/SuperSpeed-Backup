@@ -31,6 +31,33 @@ export class DBRunnerStore implements RunnerStore {
         }
     }
 
+    // async findName(runnerName:string):Promise<number>{
+    //     try {
+    //         let result = await this.connectionPool.request()
+    //             .input('runnerName', Int, runnerName)
+    //             .query<Runner>('SELECT * FROM superspeed.runner WHERE runnerName = @runnerName')
+    //         if(result.recordset.length === 0){
+    //             return 0;
+    //         }
+    //         return 1;
+    //     } catch (e) {
+    //         throw new Error("Runner with the name: " + runnerName + " does not exist");
+    //     }
+    // }
+
+    // async findSameObject(runnerName:string, email:string, password:string):Promise<Runner>{
+    //     try {
+    //         let result = await this.connectionPool.request()
+    //             .input('runnerName', Int, runnerName)
+    //             .input('email', VarChar(50), email)
+    //             .input('password', VarChar(50), password)
+    //             .query<Runner>('SELECT * FROM superspeed.runner WHERE runnerName = @runnerName AND email = @email AND password = @password')
+    //         return result.recordset[0];
+    //     } catch (e) {
+    //         throw new Error("Runner does not exist");
+    //     }
+    // }
+
     async insert(runner:Runner): Promise<void>{
         try{
             await this.connectionPool.request()

@@ -31,6 +31,17 @@ export class DBSpeedrunStore implements SpeedrunStore {
         }
     }
 
+    async findAllWithGameId(sid:number): Promise<Speedrun[]>{
+        try{
+            let results = await this.connectionPool.request()
+                .input('gameId', Int, sid)
+                .query<Speedrun>('SELECT * FROM superspeed.speedrun WHERE gameId = @gameId')
+            return results.recordset;
+        } catch (e){
+            throw new Error("ERROR: game with gameId: " + sid +" doesnt exist, or there are no speedruns for this game yet")
+        }
+    }
+
     async insert(speedrun:Speedrun): Promise<void>{
         try{
             await this.connectionPool.request()
