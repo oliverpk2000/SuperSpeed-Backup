@@ -13,12 +13,14 @@ import {InfoDisplayComponent} from "./info-display/info-display.component";
 import {TimeFormatPipe} from "./display comps/time-format.pipe";
 import {GameDisplayComponent} from "./display comps/game-display/game-display.component";
 import { ProfileComponent } from './profile/profile.component';
+import { StopwatchComponent } from './stopwatch/stopwatch.component';
 //write routes here if you want to add page
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'home/game/:gameId', component: InfoDisplayComponent},
   {path: 'profile/:runnerId', component: ProfileComponent},
+  {path: 'stopwatch', component: StopwatchComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: '**', component: PageNotFoundComponent}
 ];
@@ -32,7 +34,8 @@ const routes: Routes = [
     GameDisplayComponent,
     InfoDisplayComponent,
     TimeFormatPipe,
-    ProfileComponent
+    ProfileComponent,
+    StopwatchComponent
   ],
   imports: [
     BrowserModule,
