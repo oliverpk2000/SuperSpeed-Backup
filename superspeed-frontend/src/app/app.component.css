@@ -17,7 +17,9 @@
 
 /* Position of the dropdown Button */
 .dropdown {
-  float: right;
+  position: absolute;
+  top: 25%;
+  left: 87%;
 }
 
 /* style of the Dropdown Button*/
@@ -44,11 +46,15 @@
   position: absolute;
   background-color: #202124;
   min-width: 160px;
+  /* adds cool shadow */
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
 }
 
 
 /* styles of the links in the dropdown menu */
 .dropdown-content a {
+  float: none;
   color: #eeeeee;
   padding: 12px 16px;
   /* removes the underline of a link */

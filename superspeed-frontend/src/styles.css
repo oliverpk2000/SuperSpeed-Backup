@@ -30,6 +30,15 @@ button:disabled{
   border-radius: 5px;
 }
 
+.errorClass{
+  border: darkred 3px solid;
+  border-radius: 10px;
+  background-color: palevioletred;
+  opacity: 0.8;
+  padding: 10px;
+  color: darkred;
+  width: max-content;
+}
 
 .ng-valid[required], .ng-valid.required {
   border-left: 5px solid #14d3c3;

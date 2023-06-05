@@ -2,7 +2,9 @@ import {Component, Injector, OnInit} from '@angular/core';
 import {AbstractControl, FormControl, FormGroup, ValidationErrors, Validators} from "@angular/forms";
 import {LoginManagementService} from "../login-management.service";
 import {Runner} from "../objects/runner";
-import {ContentApiService} from "../content-api.service";
+import {SpeedrunApiService} from "../api/speedrun-api.service";
+import {dateValidator} from "../customValidators";
+import {RunnerApiService} from "../api/runner-api.service";
 
 @Component({
   selector: 'app-login',
@@ -11,14 +13,9 @@ import {ContentApiService} from "../content-api.service";
 })
 export class LoginComponent implements OnInit {
 
-  runnerList: Runner[] = [];
-
-  constructor(public loginManager: LoginManagementService, private contentApi: ContentApiService) {
+  constructor(public loginManager: LoginManagementService, public runnerApiService:RunnerApiService, private contentApi: SpeedrunApiService) {
   }
 
-  //Login Form, (reactive form)
-
-//form setup
   loginForm = new FormGroup({
     //database will automatically set the id
     runnerId: new FormControl(0),
@@ -27,14 +24,18 @@ export class LoginComponent implements OnInit {
     //there is already a validation for email I guess
     email: new FormControl('', [Validators.required, Validators.email]),
     //date joined will only be set to this date on registering
-    dateJoined: new FormControl(new Date()),
-    //password must be at least 8 letters and max 50 letters and must contain one capital letter
+    dateJoined: new FormControl(new Date(), [Validators.required, dateValidator]),
+    //password must be at least 8 letters and max 50 letters
     password: new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(50)]),
-    adminFlag: new FormControl(),
+    //admingflag is required and can only be 0 or 1
+    adminFlag: new FormControl(0, [Validators.required, Validators.pattern(/^[01]$/)])
   })
 
+  get runnerName() {return this.loginForm.get('runnerName');}
+  get email() {return this.loginForm.get('email');}
+  get password() {return this.loginForm.get('password');}
+
   ngOnInit(): void {
-    this.getRunners();
     let runner = this.loginManager.getRunner();
     this.loginForm.patchValue(
       {
@@ -48,7 +49,7 @@ export class LoginComponent implements OnInit {
 //check if login data was valid, if yes redirects to home page
   login() {
     let runner: Runner = this.loginForm.value as Runner;
-    if (this.validateRunnerList(runner, this.runnerList)) {
+    if (this.validateRunnerList(runner, this.runnerApiService.runners)) {
       let runnerInList = this.getRealRunner(runner)
       this.loginManager.setRunner(runnerInList);
       this.loginManager.login()
@@ -56,12 +57,6 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  //Fills runnerList with the Runners in DB/InMemory
-  getRunners() {
-    this.contentApi.getAllRunners().subscribe((res) => {
-      this.runnerList = res
-    })
-  }
 
 //goes through all users and compares their login data
   validateRunnerList(possibleRunner: Runner, realRunnerList: Runner[]) {
@@ -86,28 +81,12 @@ export class LoginComponent implements OnInit {
   }
 
   getRealRunner(runner1:Runner){
-    for (let i = 0; i < this.runnerList.length; i++) {
-      if(this.runnerList[i].runnerName === runner1.runnerName && this.runnerList[i].email === runner1.email && this.runnerList[i].password === runner1.password){
-         return this.runnerList[i];
+    for (let i = 0; i < this.runnerApiService.runners.length; i++) {
+      if(this.runnerApiService.runners[i].runnerName === runner1.runnerName && this.runnerApiService.runners[i].email === runner1.email && this.runnerApiService.runners[i].password === runner1.password){
+         return this.runnerApiService.runners[i];
       }
     }
     return null;
   }
 }
-/**
-//Cusom validators for Login Form
-export function uniqueRunnerName(control: AbstractControl):ValidationErrors | null{
-  const runnerName = control.value.trim();
-  //using Injector to inject the service into the function
-  const injector = Injector.create({
-    providers: [{ provide: ContentApiService, useClass: ContentApiService }]
-  });
 
-  let exists:number = 0;
-  injector.get(ContentApiService).getRunnerByName(runnerName).subscribe((res: number) =>{
-    exists = res;
-  });
-
-  return exists===0 ? null : {invalidUserName: runnerName}
-}
- */

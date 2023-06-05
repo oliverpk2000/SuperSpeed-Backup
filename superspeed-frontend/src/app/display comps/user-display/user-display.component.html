@@ -1,0 +1,34 @@
+<div>
+  <div *ngIf="!editing">
+    <p>runnerId: {{runner.runnerId}}</p>
+    <p>runnerName: {{runner.runnerName}}</p>
+    <p>email: {{runner.email}}</p>
+    <p>password: {{runner.password}}</p>
+    <p>dateJoined: {{runner.dateJoined}}</p>
+    <p>Adminflag: {{runner.adminFlag}}</p>
+  </div>
+
+  <form *ngIf="editing" [formGroup]="runnerForm" (ngSubmit)="submitChanges()">
+    <label for="runnerName">Runner Name</label>
+    <input id="runnerName" formControlName="runnerName" class="selectionsClass" [value]="runner.runnerName">
+
+
+    <label for="email">Runner Name</label>
+    <input id="email" formControlName="email" class="selectionsClass" [value]="runner.email">
+
+    <label for="password">Runner Name</label>
+    <input id="password" formControlName="password" class="selectionsClass" [value]="runner.password">
+
+    <label for="dateJoined">Runner Name</label>
+    <input id="dateJoined" type="date" formControlName="dateJoined" class="selectionsClass" [value]="runner.dateJoined">
+
+    <label for="adminFlag">Runner Name</label>
+    <input id="adminFlag" formControlName="adminFlag" class="selectionsClass" [value]="runner.adminFlag">
+
+    <button type="submit" class="selectionsClass">Submit Changes</button>
+    <button type="reset" class="selectionsClass">Reset</button>
+  </form>
+
+  <button (click)="editEvent()" [disabled]="editing" class="selectionsClass">Edit</button>
+  <button class="selectionsClass deleteBtn" (click)="deleteEvent()">Delete</button>
+</div>

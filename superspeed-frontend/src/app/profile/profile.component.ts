@@ -2,13 +2,15 @@ import {Component, OnInit} from '@angular/core';
 import {LoginManagementService} from "../login-management.service";
 import {Runner} from "../objects/runner";
 import {ActivatedRoute} from "@angular/router";
-import {ContentApiService} from "../content-api.service";
+import {SpeedrunApiService} from "../api/speedrun-api.service";
+import {RunnerApiService} from "../api/runner-api.service";
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
+/**Written by Tobias Sprecher*/
 export class ProfileComponent implements OnInit {
   runner: Runner = {runnerId: -1, runnerName: '', email: '', dateJoined: new Date(), adminFlag: 0, password: ''};
   inChange: boolean = false;
@@ -16,7 +18,7 @@ export class ProfileComponent implements OnInit {
   email: string = "";
   password: string = "";
 
-  constructor(public loginManager: LoginManagementService, private route: ActivatedRoute, public contentApiService: ContentApiService) {
+  constructor(public loginManager: LoginManagementService, private route: ActivatedRoute, public runnerApiService: RunnerApiService) {
   }
 
   ngOnInit(): void {
@@ -29,7 +31,7 @@ export class ProfileComponent implements OnInit {
       //getting runnerId from URL -- format /superspeed/runner/*runnerId*
       const runnerId = Number(params['runnerId']);
       //getting the runner, with this runnerId
-      this.contentApiService.getrunner(runnerId).subscribe((res) => {
+      this.runnerApiService.getrunner(runnerId).subscribe((res) => {
         this.runner = res;
         this.runnerName = this.runner.runnerName;
         this.email = this.runner.email;
@@ -47,7 +49,7 @@ export class ProfileComponent implements OnInit {
       runnerId: this.runner.runnerId, runnerName: this.runnerName,
       email: this.email, password: this.password, dateJoined: this.runner.dateJoined, adminFlag: this.runner.adminFlag
     }
-    this.contentApiService.updaterunner(changedRunner).subscribe();
+    this.runnerApiService.updaterunner(changedRunner).subscribe();
     this.inChange = false;
     this.update()
   }

@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f1951cbe-2151-4de5-97de-e2fc4c34694b" name="Changes" comment="started splits">
+    <list default="true" id="f1951cbe-2151-4de5-97de-e2fc4c34694b" name="Changes" comment="what the heeeeeel 2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/superspeed-frontend/src/app/stopwatch/stopwatch.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/superspeed-frontend/src/app/stopwatch/stopwatch.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/superspeed-frontend/src/app/stopwatch/stopwatch.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/superspeed-frontend/src/app/stopwatch/stopwatch.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/superspeed-frontend/src/app/stopwatch/stopwatch.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/superspeed-frontend/src/app/stopwatch/stopwatch.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/superspeed-frontend/src/app/stopwatch/timer/timer.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/superspeed-frontend/src/app/stopwatch/timer/timer.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/superspeed-frontend/src/app/stopwatch/timer/timer.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/superspeed-frontend/src/app/stopwatch/timer/timer.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/superspeed-frontend/src/app/api/category-api.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/superspeed-frontend/src/app/api/category-api.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/superspeed-frontend/src/app/api/speedrun-api.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/superspeed-frontend/src/app/api/speedrun-api.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -227,7 +224,28 @@
       <option name="project" value="LOCAL" />
       <updated>1685977477805</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="finished split timer">
+      <created>1685979546327</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1685979546327</updated>
+    </task>
+    <task id="LOCAL-00017" summary="what the heeeeeel">
+      <created>1685982264336</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1685982264336</updated>
+    </task>
+    <task id="LOCAL-00018" summary="what the heeeeeel 2">
+      <created>1685982284621</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1685982284621</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -261,6 +279,9 @@
     <MESSAGE value="data form for stopwatch finished" />
     <MESSAGE value="minor stopwatch form fixes" />
     <MESSAGE value="started splits" />
-    <option name="LAST_COMMIT_MESSAGE" value="started splits" />
+    <MESSAGE value="finished split timer" />
+    <MESSAGE value="what the heeeeeel" />
+    <MESSAGE value="what the heeeeeel 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="what the heeeeeel 2" />
   </component>
 </project>
