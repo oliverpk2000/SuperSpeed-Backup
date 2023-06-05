@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f1951cbe-2151-4de5-97de-e2fc4c34694b" name="Changes" comment="guest login done, commented code">
+    <list default="true" id="f1951cbe-2151-4de5-97de-e2fc4c34694b" name="Changes" comment="logout glitch fixed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/superspeed-backend/src/runner/inMemoryRunner.store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/superspeed-backend/src/runner/inMemoryRunner.store.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/superspeed-backend/src/runner/runner.router.ts" beforeDir="false" afterPath="$PROJECT_DIR$/superspeed-backend/src/runner/runner.router.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/superspeed-backend/src/runner/runner.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/superspeed-backend/src/runner/runner.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/superspeed-frontend/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/superspeed-frontend/src/app/app.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/superspeed-frontend/src/app/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/superspeed-frontend/src/app/login/login.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/superspeed-frontend/src/app/profile/profile.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/superspeed-frontend/src/app/profile/profile.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/superspeed-frontend/src/app/stopwatch/stopwatch.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/superspeed-frontend/src/app/stopwatch/stopwatch.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/superspeed-frontend/src/app/stopwatch/stopwatch.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/superspeed-frontend/src/app/stopwatch/stopwatch.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/superspeed-frontend/src/app/stopwatch/stopwatch.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/superspeed-frontend/src/app/stopwatch/stopwatch.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,24 +27,27 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2PsPRWnPMPfuQcYOWAGTp8pRPmS" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/WebstormProjects/superspeed-frontend/src/app/websiteFiles&quot;,
-    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;E:\\school\\SuperSpeed\\superspeed-backend\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/User/WebstormProjects/superspeed-frontend/src/app/websiteFiles",
+    "nodejs_interpreter_path": "node",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "ts.external.directory.path": "C:\\Users\\User\\WebstormProjects\\SuperSpeed\\superspeed-backend\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\User\WebstormProjects\superspeed-frontend\src\app\websiteFiles" />
@@ -188,7 +193,21 @@
       <option name="project" value="LOCAL" />
       <updated>1685308595262</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="started stopwatch">
+      <created>1685904205062</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1685904205062</updated>
+    </task>
+    <task id="LOCAL-00012" summary="logout glitch fixed">
+      <created>1685950586781</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1685950586781</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -206,6 +225,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="login and stuff" />
     <MESSAGE value="adding all unversioned file bc I am a dumbass" />
     <MESSAGE value="moved files" />
@@ -216,6 +236,8 @@
     <MESSAGE value="frontend api finished" />
     <MESSAGE value="login validation finished, working on guest login next" />
     <MESSAGE value="guest login done, commented code" />
-    <option name="LAST_COMMIT_MESSAGE" value="guest login done, commented code" />
+    <MESSAGE value="started stopwatch" />
+    <MESSAGE value="logout glitch fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="logout glitch fixed" />
   </component>
 </project>

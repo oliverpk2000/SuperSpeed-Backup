@@ -48,7 +48,6 @@ export class LoginComponent implements OnInit {
 //check if login data was valid, if yes redirects to home page
   login() {
     let runner: Runner = this.loginForm.value as Runner;
-
     if (this.validateRunnerList(runner, this.runnerList)) {
       let runnerInList = this.getRealRunner(runner)
       this.loginManager.setRunner(runnerInList);
@@ -72,18 +71,13 @@ export class LoginComponent implements OnInit {
 
 //compares two runner interfaces
   compareRunnerData(runner1: Runner, runner2: Runner): boolean {
-    console.log(runner1)
-    console.log(runner2)
     if (runner1.runnerName !== runner2.runnerName) {
       return false;
     }
 
     if (runner1.email !== runner2.email) {
-      console.log("emails: " + runner1.email === runner2.email);
       return false;
     }
-    console.log("passwords: " + runner1.password == runner2.password);
-    console.log("passwords: " + runner1.password + ", " + runner2.password);
     return runner1.password == runner2.password;
   }
 

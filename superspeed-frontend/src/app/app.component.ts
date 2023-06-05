@@ -1,22 +1,41 @@
-import { Component } from '@angular/core';
+import {Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {LoginManagementService} from "./login-management.service";
+import {Runner} from "./objects/runner";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  constructor(public loginManager:LoginManagementService) {
+export class AppComponent implements OnInit, OnChanges {
+  user: Runner = this.loginManager.getRunner();
+
+  constructor(public loginManager: LoginManagementService) {
   }
 
   title = 'superspeed-frontend';
+  login = "/login";
+  stopwatch = "/stopwatch";
   //does not work yet
 
-  profileLink:string = "http://localhost:4200/profile/"+this.loginManager.getRunner().runnerId
+  profileLink: string = "/profile/" + this.loginManager.getRunner().runnerId
 
-  ngDoCheck():void{
+  ngDoCheck(): void {
     const runnerId = this.loginManager.getRunner()?.runnerId;
-    this.profileLink = "http://localhost:4200/profile/"+runnerId;
+    this.profileLink = "/profile/" + runnerId;
+  }
+
+  ngOnInit(): void {
+    const runnerId = this.user.runnerId;
+    this.profileLink = "http://localhost:4200/profile/" + runnerId;
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    this.user = this.loginManager.getRunner();
+  }
+
+  navigateToHome() {
+    this.ngOnInit();
+    this.loginManager.login();
   }
 }
