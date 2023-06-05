@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f1951cbe-2151-4de5-97de-e2fc4c34694b" name="Changes" comment="minor stopwatch form fixes">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_05_2023_15_19__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_05_2023_15_19__Changes_.xml" afterDir="false" />
+    <list default="true" id="f1951cbe-2151-4de5-97de-e2fc4c34694b" name="Changes" comment="started splits">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/superspeed-frontend/src/app/stopwatch/stopwatch.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/superspeed-frontend/src/app/stopwatch/stopwatch.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/superspeed-frontend/src/app/stopwatch/stopwatch.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/superspeed-frontend/src/app/stopwatch/stopwatch.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/superspeed-frontend/src/app/stopwatch/stopwatch.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/superspeed-frontend/src/app/stopwatch/stopwatch.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/superspeed-frontend/src/app/stopwatch/timer/timer.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/superspeed-frontend/src/app/stopwatch/timer/timer.component.html" afterDir="false" />
@@ -220,7 +220,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685961557520</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="started splits">
+      <created>1685977477805</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1685977477805</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -253,6 +260,7 @@
     <MESSAGE value="logout glitch fixed" />
     <MESSAGE value="data form for stopwatch finished" />
     <MESSAGE value="minor stopwatch form fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor stopwatch form fixes" />
+    <MESSAGE value="started splits" />
+    <option name="LAST_COMMIT_MESSAGE" value="started splits" />
   </component>
 </project>

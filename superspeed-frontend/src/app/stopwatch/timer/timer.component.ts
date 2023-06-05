@@ -9,9 +9,11 @@ export class TimerComponent implements OnInit {
 
   @Input() splits: string[] = [];
 
-  currentSplit:number = 0;
+  currentSplit: number = 0;
 
-  play:boolean = false;
+  splitEndTimes:number[] = [];
+
+  play: boolean = false;
 
   constructor() {
   }
@@ -30,7 +32,15 @@ export class TimerComponent implements OnInit {
   }
 
   pauseTimer() {
-    this.play = false;
     clearInterval(this.interval);
+  }
+
+  next() {
+    this.splitEndTimes.push(this.time);
+    this.currentSplit++;
+    if(this.currentSplit >= this.splits.length){
+      this.pauseTimer();
+    }
+
   }
 }

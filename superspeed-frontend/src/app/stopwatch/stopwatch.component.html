@@ -1,38 +1,7 @@
-<p>here</p>
 <h1>Stopwatch</h1>
 <p>record new speedruns here!</p>
-<form [formGroup]="speedrunDataForm" (ngSubmit)="submit()">
-  <div class="form-group">
-
-    <div class="form-part">
-      <h2>necessary data:</h2>
-    </div>
-
-    <div class="form-part">
-      <label for="game">game: </label>
-      <select class="form-control" id="game" formControlName="gameId">
-        <option *ngFor="let game of games" [ngValue]="game.gameId" [id]="game.gameId">{{game.gameName}}</option>
-      </select>
-    </div>
-
-    <div class="form-part">
-      <label for="category">categories: </label>
-      <select class="form-control" id="category" formControlName="catId">
-        <option *ngFor="let category of categories" [ngValue]="category.catId" [id]="category.catId">
-        {{category.catName}}
-        </option>
-      </select>
-    </div>
-
-    <div class="form-submit">
-      <button type="submit" [disabled]="!speedrunDataForm.valid" class="selectionsClass">start</button>
-    </div>
-  </div>
-</form>
-<div *ngIf="setupDone">
-  <app-timer [splits]="splits"></app-timer>
-  <div>
-    <label for="splits">splits: </label>
-    <input type="text" id="splits" (keyup.enter)="addSplit()" [(ngModel)]="split">
-  </div>
+<app-timer [splits]="splits"></app-timer>
+<div>
+  <label for="splits">splits: </label>
+  <input type="text" id="splits" (keyup.enter)="addSplit()" [(ngModel)]="split">
 </div>
