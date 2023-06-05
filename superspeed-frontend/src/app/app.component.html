@@ -1,14 +1,14 @@
 <div class="navbar">
-  <img src="../assets/images/SuperSpeedCropped.png" [routerLink]="['/home']">
+  <img src="../assets/images/SuperSpeedCropped.png" (click)="navigateToHome()">
 
     <div class="dropdown">
       <button class="dropbtn">Options
         <i class="fa fa-caret-down"></i>
       </button>
       <div class="dropdown-content">
-        <a [href]=profileLink>Profile</a>
-        <a href="http://localhost:4200/login">Logout</a>
-        <a href="http://localhost:4200/stopwatch">Stopwatch</a>
+        <a [routerLink]="profileLink">Profile</a>
+        <a [routerLink]="login">Logout</a>
+        <a [routerLink]="stopwatch">Stopwatch</a>
       </div>
     </div>
 </div>

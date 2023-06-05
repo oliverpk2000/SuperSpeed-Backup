@@ -71,8 +71,6 @@ export class LoginComponent implements OnInit {
 
 //compares two runner interfaces
   compareRunnerData(runner1: Runner, runner2: Runner): boolean {
-    console.log(runner1)
-    console.log(runner2)
     if (runner1.runnerName !== runner2.runnerName) {
       return false;
     }
@@ -81,8 +79,6 @@ export class LoginComponent implements OnInit {
       console.log("emails: " + runner1.email === runner2.email);
       return false;
     }
-    console.log("passwords: " + runner1.password == runner2.password);
-    console.log("passwords: " + runner1.password + ", " + runner2.password);
     return runner1.password == runner2.password;
   }
 

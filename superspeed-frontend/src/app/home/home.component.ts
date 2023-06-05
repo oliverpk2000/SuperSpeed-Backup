@@ -29,6 +29,7 @@ export class HomeComponent implements OnInit {
     this.contentApiService.getAllGames().subscribe((res)=>{
       this.games = res;
     })
+    this.loginManager.getRunner();
   }
 
   logout() {
