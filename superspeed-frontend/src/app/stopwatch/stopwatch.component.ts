@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {LoginManagementService} from "../login-management.service";
-import {ContentApiService} from "../content-api.service";
 import {Runner} from "../objects/runner";
 
 @Component({
@@ -10,7 +9,7 @@ import {Runner} from "../objects/runner";
 })
 export class StopwatchComponent implements OnInit {
 
-  constructor(public loginManager: LoginManagementService, public contentApiService: ContentApiService) {
+  constructor(public loginManager: LoginManagementService) {
   }
 
   user: Runner = {runnerId: 0, runnerName: "", email: "", dateJoined: new Date(), password: "", adminFlag: 0}
