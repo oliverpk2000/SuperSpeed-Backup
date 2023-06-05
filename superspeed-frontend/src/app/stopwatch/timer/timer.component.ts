@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-timer',
@@ -6,6 +6,10 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./timer.component.css']
 })
 export class TimerComponent implements OnInit {
+
+  @Input() splits: string[] = [];
+
+  currentSplit:number = 0;
 
   play:boolean = false;
 
@@ -29,5 +33,4 @@ export class TimerComponent implements OnInit {
     this.play = false;
     clearInterval(this.interval);
   }
-
 }

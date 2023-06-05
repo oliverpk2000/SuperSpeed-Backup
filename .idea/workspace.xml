@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f1951cbe-2151-4de5-97de-e2fc4c34694b" name="Changes" comment="minor stopwatch form fixes">
-      <change afterPath="$PROJECT_DIR$/superspeed-frontend/src/app/stopwatch/timer/timer.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/superspeed-frontend/src/app/stopwatch/timer/timer.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/superspeed-frontend/src/app/stopwatch/timer/timer.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/superspeed-frontend/src/app/stopwatch/timer/timer.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_05_2023_15_19__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_05_2023_15_19__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/superspeed-frontend/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/superspeed-frontend/src/app/app.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/superspeed-frontend/src/app/stopwatch/stopwatch.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/superspeed-frontend/src/app/stopwatch/stopwatch.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/superspeed-frontend/src/app/stopwatch/stopwatch.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/superspeed-frontend/src/app/stopwatch/stopwatch.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/superspeed-frontend/src/app/stopwatch/timer/timer.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/superspeed-frontend/src/app/stopwatch/timer/timer.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/superspeed-frontend/src/app/stopwatch/timer/timer.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/superspeed-frontend/src/app/stopwatch/timer/timer.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +43,7 @@
     "nodejs_interpreter_path": "node",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "preferences.lookFeel",
-    "ts.external.directory.path": "C:\\Users\\User\\WebstormProjects\\SuperSpeed\\superspeed-backend\\node_modules\\typescript\\lib",
+    "ts.external.directory.path": "E:\\school\\SuperSpeed\\superspeed-backend\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>

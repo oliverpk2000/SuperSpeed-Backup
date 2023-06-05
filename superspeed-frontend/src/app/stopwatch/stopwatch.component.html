@@ -30,5 +30,9 @@
   </div>
 </form>
 <div *ngIf="setupDone">
-  <app-timer></app-timer>
+  <app-timer [splits]="splits"></app-timer>
+  <div>
+    <label for="splits">splits: </label>
+    <input type="text" id="splits" (keyup.enter)="addSplit()" [(ngModel)]="split">
+  </div>
 </div>

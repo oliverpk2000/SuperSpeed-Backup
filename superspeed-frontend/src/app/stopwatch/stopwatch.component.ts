@@ -32,6 +32,8 @@ export class StopwatchComponent implements OnInit {
     runDate: new FormControl(new Date()),
     approved: new FormControl(0)
   });
+  splits: string[] = []
+  split: string = "";
 
   ngOnInit(): void {
     this.user = this.loginManager.getRunner();
@@ -57,5 +59,10 @@ export class StopwatchComponent implements OnInit {
     this.runData = this.speedrunDataForm.value as Speedrun;
     console.log(this.runData);
     this.setupDone = true;
+  }
+
+  addSplit() {
+    this.splits.push(this.split);
+    this.split = "";
   }
 }
