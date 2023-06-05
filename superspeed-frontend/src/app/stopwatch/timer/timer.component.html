@@ -1,4 +1,8 @@
-<div *ngFor="let split of splits; ">
-  <p>{{split}}: {{time | timeFormat}} <button *ngIf="currentSplit == 0" (click)="pauseTimer()">pause</button></p>
+<div *ngFor="let split of splits; index as i">
+  <p *ngIf="currentSplit == i;else splitFinished">{{split}}: {{time | timeFormat}}
+    <button (click)="next()">next</button>
+  </p>
+  <ng-template #splitFinished><p>{{split}}: {{splitEndTimes[i]||0 | timeFormat}}</p></ng-template>
 </div>
-<button *ngIf="splits.length > 0" (click)="startTimer()">start</button>
+<h3>full time: {{time | timeFormat}}</h3>
+<button *ngIf="splits.length > 0 && play == false" (click)="startTimer()">start</button>
