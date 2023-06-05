@@ -14,11 +14,12 @@ export class AppComponent implements OnInit, OnChanges {
   }
 
   title = 'superspeed-frontend';
-  login = "/login";
-  stopwatch = "/stopwatch";
-  //does not work yet
 
+
+  login:string = "/login";
+  stopwatch:string = "/stopwatch";
   profileLink: string = "/profile/" + this.loginManager.getRunner().runnerId
+  users:string = "/users";
 
   ngDoCheck(): void {
     const runnerId = this.loginManager.getRunner()?.runnerId;

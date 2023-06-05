@@ -16,7 +16,7 @@
 </select>
 
 <select name="categorySelect" [(ngModel)]="categoryVal" class="selectionsClass">
-  <option *ngFor="let category of categories" [ngValue]="category.catId">{{category.catName}}</option>
+  <option *ngFor="let category of categoryApiService.categories" [ngValue]="category.catId">{{category.catName}}</option>
 </select>
 
 <button id="addSpeedrunBtn" (click)="addSpeedrunAction()" [disabled]="speedrunAdding || loginManager.getRunner().runnerId===-1" class="selectionsClass">Add Speedrun</button>
@@ -28,16 +28,29 @@
     <label for="timeInput">Time</label><br>
     <input formControlName="timeInput" id="timeInput" name="timeInput" type="text" class="selectionsClass" placeholder="format hh:mm:SS:ssss">
   </div>
+  <div *ngIf="timeInput.invalid && (timeInput.dirty || timeInput.touched)" class="errorClass">
+    <div *ngIf="timeInput.value === '' ">
+      Time must be set
+    </div>
+    <div *ngIf="timeInput.errors?.['pattern']">
+      Time must be of pattern hh:mm:SS.sss
+    </div>
+  </div>
 
   <div class="inputBox">
     <label for="dateInput">run-date</label><br>
     <input formControlName="dateInput" id="dateInput" name="dateInput" type="date" class="selectionsClass">
   </div>
+  <div *ngIf="dateInput.invalid && (dateInput.dirty || dateInput.touched)" class="errorClass">
+    <div *ngIf="dateInput.errors?.['invalidDate']">
+      Run-date can not be in the future and {{dateInput.errors['invalidDate'] | date}} does not meet the criteria
+    </div>
+  </div>
 
   <div class="inputBox">
     <label for="categorySelectSpeedrunForm">Category</label>
     <select formControlName="categorySelect" id="categorySelectSpeedrunForm" name="categorySelectSpeedrunForm" class="selectionsClass">
-      <option *ngFor="let category of categories" [ngValue]="category.catId">{{category.catName}}</option>
+      <option *ngFor="let category of categoryApiService.categories" [ngValue]="category.catId">{{category.catName}}</option>
     </select>
   </div>
 
@@ -57,7 +70,7 @@
   <tr *ngFor="let speedrun of conditionSpeedruns(); let i = index">
     <td>{{i+1}}</td>
     <td>{{speedrun.timeScore | timeFormat}}</td>
-    <td>{{runners.get(speedrun.runId).runnerName}}</td>
+    <td>{{runnersForGame.get(speedrun.runId).runnerName}}</td>
     <td>{{speedrun.runDate | date}}</td>
     <td>{{speedrun.approved}}</td>
     <button class="selectionsClass" (click)="approveAction(speedrun)" *ngIf="loginManager.getRunner().adminFlag===1 && !speedrun.approved">Approve</button>

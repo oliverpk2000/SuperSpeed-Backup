@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {LoginManagementService} from "../login-management.service";
-import {ContentApiService} from "../content-api.service";
-import {Game} from "../objects/game";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {dateValidator} from "../customValidators";
+import {GameApiService} from "../api/game-api.service";
 
 @Component({
   selector: 'app-home',
@@ -11,52 +12,46 @@ import {Game} from "../objects/game";
 /** Written by Tobias Sprecher */
 export class HomeComponent implements OnInit {
 
-  constructor(public loginManager: LoginManagementService, public contentApiService:ContentApiService) {}
+  constructor(public loginManager: LoginManagementService, public gameApiService:GameApiService) {}
 
-  games:Game[] = [];
+  gameForm = new FormGroup({
+    gameNameInput: new FormControl('', Validators.required),
+    datePublishedInput: new FormControl(new Date(), [Validators.required, dateValidator])
+  })
+
+  get gameNameInput(){return this.gameForm.get('gameNameInput');}
+  get datePublishedInput() {return this.gameForm.get('datePublishedInput')}
+
   searchbarVal:string = "";
-  gameName:string;
-  releaseDate = new Date();
 
   ngOnInit(): void {
-    //getting all necessaryassets to show content
+    //getting all necessary assets to show content
     if(!this.loginManager.checkLoginState() && !this.loginManager.getGuestState()){
       this.loginManager.logout();
     }
-    this.update();
   }
 
-  update(){
-    this.contentApiService.getAllGames().subscribe((res)=>{
-      this.games = res;
-    })
-    this.loginManager.getRunner();
-  }
-
-  logout() {
-    //back to login screen
-    this.loginManager.logout();
-  }
 
   matchSearch(){
     let matching = []
 
     if(this.searchbarVal===""){
-      return this.games;
+      return this.gameApiService.games;
     }
 
-    for (let i = 0; i < this.games.length; i++) {
-      if(this.games[i].gameName.toLowerCase().match(this.searchbarVal.toLowerCase())){
-        matching.push(this.games[i]);
+    for (let i = 0; i < this.gameApiService.games.length; i++) {
+      if(this.gameApiService.games[i].gameName.toLowerCase().match(this.searchbarVal.toLowerCase())){
+        matching.push(this.gameApiService.games[i]);
       }
     }
     return matching;
   }
 
   addGame(){
-    this.contentApiService.postGame({gameId:0, gameName: this.gameName, datePublished:this.releaseDate}).subscribe()
-    this.gameName="";
-    this.releaseDate = new Date();
-    this.update();
+    const gameName= this.gameForm.get("gameNameInput").value;
+    const datePublished = this.gameForm.get("datePublishedInput").value;
+    this.gameApiService.postGame({gameId:0, gameName: gameName, datePublished: datePublished}).subscribe();
+    this.gameForm.reset();
   }
 }
+

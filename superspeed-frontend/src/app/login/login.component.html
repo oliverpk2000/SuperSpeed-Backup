@@ -10,11 +10,28 @@
       <input class="form-control" id="runnerName"
              formControlName="runnerName">
     </div>
+    <div *ngIf="runnerName.invalid && (runnerName.dirty || runnerName.touched)" class="errorClass">
+      <div *ngIf="runnerName.value === '' ">
+        Runnername must be set
+      </div>
+      <div *ngIf="runnerName.errors?.['minlength']">
+        Runnername must be at least {{ runnerName.errors['minlength']['requiredLength']}} long
+      </div>
+    </div>
+
 
     <div class="form-part">
       <label for="email">email: </label>
       <input class="form-control" id="email"
              formControlName="email">
+    </div>
+    <div *ngIf="email.invalid && (email.dirty || email.touched)" class="errorClass">
+      <div *ngIf="email.value === '' ">
+        Email must be set
+      </div>
+      <div *ngIf="email.errors?.['email']">
+        Email must match email format
+      </div>
     </div>
 
     <div class="form-part">
@@ -22,6 +39,17 @@
       <input type="password" class="form-control" id="password"
              formControlName="password">
     </div>
+
+    <div *ngIf="password.invalid && (password.dirty || password.touched)" class="errorClass">
+      <div *ngIf="password.value === '' ">
+        Password must be set
+      </div>
+      <div *ngIf="password.errors?.['minlength']">
+        Password must be at least {{ password.errors['minlength']['requiredLength']}} long
+      </div>
+    </div>
+
+
     <div class="form-submit">
       <button type="submit" [disabled]="!loginForm.valid" class="selectionsClass">login</button>
     </div>

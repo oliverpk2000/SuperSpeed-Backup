@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {LoginManagementService} from "../login-management.service";
-import {ContentApiService} from "../content-api.service";
+import {SpeedrunApiService} from "../api/speedrun-api.service";
 import {Runner} from "../objects/runner";
 import {FormGroup, FormControl, Validators} from "@angular/forms";
-import {Game} from "../objects/game";
-import {Category} from "../objects/category";
 import {Speedrun} from "../objects/speedrun";
+import {GameApiService} from "../api/game-api.service";
+import {CategoryApiService} from "../api/category-api.service";
 
 @Component({
   selector: 'app-stopwatch',
@@ -14,12 +14,11 @@ import {Speedrun} from "../objects/speedrun";
 })
 export class StopwatchComponent implements OnInit {
 
-  constructor(public loginManager: LoginManagementService, public contentApiService: ContentApiService) {
+  constructor(public loginManager: LoginManagementService, public categoryApiService:CategoryApiService,
+              public contentApiService: SpeedrunApiService, public gameApiService:GameApiService) {
   }
 
   user: Runner = {runnerId: 0, runnerName: "", email: "", dateJoined: new Date(), password: "", adminFlag: 0}
-  games: Game[] = [];
-  categories: Category[] = [];
   runData: Speedrun = {gameId:-1, runnerId:-1, catId:-1, runId:0, timeScore:0, runDate:new Date(), approved:0}
   setupDone: boolean = false;
 
@@ -36,18 +35,8 @@ export class StopwatchComponent implements OnInit {
   ngOnInit(): void {
     this.user = this.loginManager.getRunner();
     console.log(this.user);
-    this.getAllGames();
-    this.getAllCategories()
-
   }
 
-  getAllGames() {
-    this.contentApiService.getAllGames().subscribe((res) => this.games = res);
-  }
-
-  getAllCategories(){
-    this.contentApiService.getAllCategories().subscribe((res) => this.categories = res);
-  }
 
   submit() {
     //scuffed

@@ -15,6 +15,8 @@ import {GameDisplayComponent} from "./display comps/game-display/game-display.co
 import { ProfileComponent } from './profile/profile.component';
 import { StopwatchComponent } from './stopwatch/stopwatch.component';
 import { TimerComponent } from './stopwatch/timer/timer.component';
+import { UsersComponent } from './users/users.component';
+import { UserDisplayComponent } from './display comps/user-display/user-display.component';
 //write routes here if you want to add page
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -22,6 +24,7 @@ const routes: Routes = [
   {path: 'home/game/:gameId', component: InfoDisplayComponent},
   {path: 'profile/:runnerId', component: ProfileComponent},
   {path: 'stopwatch', component: StopwatchComponent},
+  {path: 'users', component: UsersComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: '**', component: PageNotFoundComponent}
 ];
@@ -37,7 +40,9 @@ const routes: Routes = [
     TimeFormatPipe,
     ProfileComponent,
     StopwatchComponent,
-    TimerComponent
+    TimerComponent,
+    UsersComponent,
+    UserDisplayComponent
   ],
   imports: [
     BrowserModule,
