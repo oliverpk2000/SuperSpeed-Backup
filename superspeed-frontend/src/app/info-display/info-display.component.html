@@ -26,7 +26,7 @@
 <form [formGroup]="timeForm" *ngIf="speedrunAdding" (ngSubmit)="submitSpeedrunAction()">
   <div class="inputBox">
     <label for="timeInput">Time</label><br>
-    <input formControlName="timeInput" id="timeInput" name="timeInput" type="text" class="selectionsClass" placeholder="format hh:mm:SS:ssss">
+    <input formControlName="timeInput" id="timeInput" name="timeInput" type="text" class="inputFieldClass" placeholder="format hh:mm:SS:ssss">
   </div>
   <div *ngIf="timeInput.invalid && (timeInput.dirty || timeInput.touched)" class="errorClass">
     <div *ngIf="timeInput.value === '' ">
@@ -39,7 +39,7 @@
 
   <div class="inputBox">
     <label for="dateInput">run-date</label><br>
-    <input formControlName="dateInput" id="dateInput" name="dateInput" type="date" class="selectionsClass">
+    <input formControlName="dateInput" id="dateInput" name="dateInput" type="date" class="inputFieldClass">
   </div>
   <div *ngIf="dateInput.invalid && (dateInput.dirty || dateInput.touched)" class="errorClass">
     <div *ngIf="dateInput.errors?.['invalidDate']">
@@ -56,6 +56,7 @@
 
   <button type="submit" [disabled]="!timeForm.valid" class="selectionsClass">Submit Run</button>
   <button type="reset" (click)="timeForm.reset()" class="selectionsClass">Reset</button>
+  <button (click)="cancelAction()" class="selectionsClass">Cancel</button>
 </form>
 
 <br><br><br>

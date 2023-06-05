@@ -16,6 +16,9 @@ export class StopwatchComponent implements OnInit {
 
   splits: string[] = []
   split: string = "";
+  started:boolean = false;
+  //very sketchy way of reinitializing the component by setting ngIf false and then true again
+  reinitialize = true;
 
   ngOnInit(): void {
     this.user = this.loginManager.getRunner();
@@ -24,5 +27,19 @@ export class StopwatchComponent implements OnInit {
   addSplit() {
     this.splits.push(this.split);
     this.split = "";
+  }
+
+  reinitializeFully(){
+    this.started = false;
+    this.splits = []
+    this.reinitializeAction()
+  }
+
+  reinitializeAction(){
+    //waiting for 10 milliseconds because it would not reinitialize without timeou
+    this.reinitialize = false
+    setTimeout(() => {
+      this.reinitialize = true;
+    }, 10);
   }
 }

@@ -1,5 +1,33 @@
 <div id="game">
-  <h1>{{game.gameName}}</h1>
-  <p>{{game.datePublished | date}}</p>
+  <div *ngIf="!editing">
+    <h1>{{game.gameName}}</h1>
+    <p>{{game.datePublished | date}}</p>
+  </div>
+
+  <form *ngIf="loginManager.getRunner().adminFlag===1 && editing" [formGroup]="gameEditForm" (ngSubmit)="submitChanges()">
+    <label for="gameNameInput">Game Name:</label>
+    <input id="gameNameInput" formControlName="gameNameInput" type="text" class="inputFieldClass" (click)="preventRouting($event)"><br>
+    <div *ngIf="gameNameInput.invalid && (gameNameInput.dirty || gameNameInput.touched)" class="errorClass">
+      <div *ngIf="gameNameInput.value === '' ">
+        Gamename must be set
+      </div>
+    </div>
+
+    <label for="datePublishedInput">date of publishment:</label>
+    <input id="datePublishedInput" formControlName="datePublishedInput" type="date" class="inputFieldClass" (click)="preventRouting($event)"><br>
+    <div *ngIf="datePublishedInput.invalid && (datePublishedInput.dirty || datePublishedInput.touched)" class="errorClass">
+      <div *ngIf="datePublishedInput.errors?.['invalidDate']">
+        Date of publishment can not be in the future and {{datePublishedInput.errors['invalidDate'] | date}} does not meet the criteria
+      </div>
+    </div>
+
+    <button type="submit" class="selectionsClass" (click)="preventRouting($event)">Submit Changes</button>
+    <button type="reset" class="selectionsClass" (click)="preventRouting($event)">Reset</button>
+    <button class="selectionsClass" (click)="cancelAction()">cancel</button>
+  </form>
+
+
   <button *ngIf="loginManager.getRunner().adminFlag===1" class="selectionsClass deleteBtn" (click)="deleteGame($event)">Delete</button>
+  <button *ngIf="loginManager.getRunner().adminFlag===1" class="selectionsClass" [disabled]="editing" (click)="editingAction()">Edit</button>
+
 </div>

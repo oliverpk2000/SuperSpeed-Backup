@@ -6,7 +6,7 @@ export class DBPool{
     private static  readonly config = {
         user: 'tobias_sprecher',
         password: 'password',
-        server: 'localhost\\ifsql-01', // You can use 'localhost\\instance' to connect to named instance
+        server: 'ifsql-01', // You can use 'localhost\\instance' to connect to named instance
         database: 's_sprecher_tobias_1',
         pool: {
             max: 10,

@@ -1,5 +1,8 @@
 <button *ngIf="loginManager.getRunner().runnerId!==-1" id="changeBtn" class="selectionsClass" (click)="changeEvent()" [disabled]="inChange">Change Information</button>
-<button *ngIf="loginManager.getRunner().runnerId!==-1" id="applyBtn" class="selectionsClass" (click)="applyEvent()" [disabled]="!inChange">Apply Changes</button>
+<button *ngIf="loginManager.getRunner().runnerId!==-1" id="applyBtn" class="selectionsClass" (click)="applyEvent()" [disabled]="!inChange || !this.validate()">Apply Changes</button>
+<button *ngIf="loginManager.getRunner().runnerId!==-1 && inChange" class="selectionsClass deleteBtn" (click)="cancelAction()">Cancel</button>
+<button *ngIf="loginManager.getRunner().runnerId!==-1" class="selectionsClass deleteBtn" (click)="deleteAction()">Delete Runner</button>
+
 
 <div id="outerBox" *ngIf="loginManager.getRunner().runnerId!==-1">
 
@@ -14,22 +17,24 @@
     <h1>runnerName</h1>
     <br>
     <p *ngIf="!inChange">{{runner.runnerName}}</p>
-    <input class="selectionsClass" *ngIf="inChange" [(ngModel)]= runnerName>
-
+    <input class="inputFieldClass" *ngIf="inChange" [(ngModel)]= runnerName>
+    <div *ngIf="!validateName()" class="errorClass">Name must be between 3 and 50 letters</div>
   </div>
 
   <div class="innerBox">
     <h1>email</h1>
     <br>
     <p *ngIf="!inChange">{{runner.email}}</p>
-    <input class="selectionsClass" *ngIf="inChange" [(ngModel)]= email>
+    <input class="inputFieldClass" *ngIf="inChange" [(ngModel)]= email>
+    <div *ngIf="!validateEmail()" class="errorClass">Email must be email format and contain @</div>
   </div>
 
   <div class="innerBox">
     <h1>password</h1>
     <br>
     <p *ngIf="!inChange">{{runner.password}}</p>
-    <input class="selectionsClass" *ngIf="inChange" [(ngModel)]= password>
+    <input class="inputFieldClass" *ngIf="inChange" [(ngModel)]= password>
+    <div *ngIf="!validatePassword()" class="errorClass">Password must be between 8 and 50 letters</div>
   </div>
 
   <div class="innerBox">

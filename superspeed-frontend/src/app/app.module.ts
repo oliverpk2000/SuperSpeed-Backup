@@ -17,10 +17,12 @@ import { StopwatchComponent } from './stopwatch/stopwatch.component';
 import { TimerComponent } from './stopwatch/timer/timer.component';
 import { UsersComponent } from './users/users.component';
 import { UserDisplayComponent } from './display comps/user-display/user-display.component';
+import {RegisterComponent} from "./register/register.component";
 //write routes here if you want to add page
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'login', component: LoginComponent},
+  {path: 'register', component: RegisterComponent},
   {path: 'home/game/:gameId', component: InfoDisplayComponent},
   {path: 'profile/:runnerId', component: ProfileComponent},
   {path: 'stopwatch', component: StopwatchComponent},
@@ -41,6 +43,7 @@ const routes: Routes = [
     ProfileComponent,
     StopwatchComponent,
     TimerComponent,
+    RegisterComponent,
     UsersComponent,
     UserDisplayComponent
   ],

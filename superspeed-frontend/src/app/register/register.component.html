@@ -1,13 +1,13 @@
-<form [formGroup]="loginForm" (ngSubmit)="login()">
+<form [formGroup]="registerForm" (ngSubmit)="createRunner()">
   <div class="form-group">
 
     <div class="form-part">
-      <h2>Login</h2>
+      <h2>Register</h2>
     </div>
 
     <div class="form-part">
       <label for="runnerName">runner name: </label>
-      <input class="inputFieldClass" id="runnerName"
+      <input class="form-control" id="runnerName"
              formControlName="runnerName">
     </div>
     <div *ngIf="runnerName.invalid && (runnerName.dirty || runnerName.touched)" class="errorClass">
@@ -22,7 +22,7 @@
 
     <div class="form-part">
       <label for="email">email: </label>
-      <input class="inputFieldClass" id="email"
+      <input class="form-control" id="email"
              formControlName="email">
     </div>
     <div *ngIf="email.invalid && (email.dirty || email.touched)" class="errorClass">
@@ -36,7 +36,7 @@
 
     <div class="form-part">
       <label for="password">password </label>
-      <input type="password" class="inputFieldClass" id="password"
+      <input type="password" class="form-control" id="password"
              formControlName="password">
     </div>
 
@@ -51,15 +51,7 @@
 
 
     <div class="form-submit">
-      <button type="submit" [disabled]="!loginForm.valid" class="selectionsClass">login</button>
-    </div>
-
-    <div class="form-submit">
-      <button class="selectionsClass" (click)="loginManager.loginAsGuest()">login as guest</button>
-    </div>
-
-    <div class="form-submit">
-      <button class="selectionsClass" (click)="sendToRegister()">Create a new Runner</button>
+      <button type="submit" [disabled]="!registerForm.valid" class="selectionsClass">Create Runner</button>
     </div>
   </div>
 </form>

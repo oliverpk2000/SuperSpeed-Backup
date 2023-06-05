@@ -1,7 +1,13 @@
-<h1>Stopwatch</h1>
-<p>record new speedruns here!</p>
-<app-timer [splits]="splits"></app-timer>
-<div>
-  <label for="splits">splits: </label>
-  <input type="text" id="splits" (keyup.enter)="addSplit()" [(ngModel)]="split">
+<div *ngIf="reinitialize">
+  <h1>Stopwatch</h1>
+  <p>record new speedruns here!</p>
+  <app-timer [splits]="splits" (event)="started=true"></app-timer>
+  <div *ngIf="!started">
+    <label for="splits">splits: </label>
+    <input type="text" id="splits" (keyup.enter)="addSplit()" [(ngModel)]="split" class="inputFieldClass">
+  </div>
+  <div *ngIf="started">
+    <button (click)="reinitializeAction()" class="selectionsClass ">Reset Stopwatch</button>
+    <button (click)="reinitializeFully()" class="selectionsClass">Reset Fully</button>
+  </div>
 </div>

@@ -4,13 +4,9 @@ p{
 }
 
 div{
-  border: midnightblue 6px solid;
+  border: darkcyan 5px solid;
   padding: 10px;
   border-radius: 5px;
-  background-color: royalblue;
+  background-color: mediumseagreen;
   width: auto;
-}
-
-.deleteBtn{
-  background-color: lightcoral;
 }

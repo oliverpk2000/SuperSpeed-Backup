@@ -40,10 +40,48 @@ export class ProfileComponent implements OnInit {
     })
   }
 
+
+  //basic validations
   changeEvent() {
     this.inChange = true;
   }
 
+  validateName(){
+    return this.runnerName.length>=3 && this.runnerName.length <=50
+  }
+
+  validateEmail(){
+    return this.email.match("@");
+  }
+
+  validatePassword(){
+    return this.password.length >= 8 && this.password.length<=50
+  }
+
+  validate(){
+    if(this.validateName()){
+      if(this.validateEmail()){
+        if(this.validatePassword()){
+          return true
+        }
+      }
+    }
+    return false;
+  }
+
+  //deletes the current runner
+  deleteAction(){
+    this.runnerApiService.deleterunner(this.runner).subscribe();
+    location.reload();
+  }
+
+  //cancels the editing process
+  cancelAction(){
+    this.inChange = false;
+  }
+
+  //applies the changes to the current runner
+  //!!!! admin flags dont work even though they are set to 1 !!!!!!!
   applyEvent() {
     const changedRunner = {
       runnerId: this.runner.runnerId, runnerName: this.runnerName,

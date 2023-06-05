@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-timer',
@@ -8,6 +8,7 @@ import {Component, Input, OnInit} from '@angular/core';
 export class TimerComponent implements OnInit {
 
   @Input() splits: string[] = [];
+  @Output() event = new EventEmitter<any>;
 
   currentSplit: number = 0;
 
@@ -26,8 +27,10 @@ export class TimerComponent implements OnInit {
 
   startTimer() {
     this.play = true;
+    this.event.emit();
+    let startDate = new Date()
     this.interval = setInterval(() => {
-      this.time++;
+      this.time = new Date().getTime() - startDate.getTime();
     }, 1)
   }
 

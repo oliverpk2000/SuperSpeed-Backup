@@ -5,6 +5,7 @@ import {Runner} from "../objects/runner";
 import {SpeedrunApiService} from "../api/speedrun-api.service";
 import {dateValidator} from "../customValidators";
 import {RunnerApiService} from "../api/runner-api.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ import {RunnerApiService} from "../api/runner-api.service";
 })
 export class LoginComponent implements OnInit {
 
-  constructor(public loginManager: LoginManagementService, public runnerApiService:RunnerApiService, private contentApi: SpeedrunApiService) {
+  constructor(public router:Router, public loginManager: LoginManagementService, public runnerApiService:RunnerApiService) {
   }
 
   loginForm = new FormGroup({
@@ -37,13 +38,20 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     let runner = this.loginManager.getRunner();
-    this.loginForm.patchValue(
-      {
-        runnerName: runner.runnerName,
-        email: runner.email,
-        password: runner.password
-      }
-    )
+    if(runner.runnerName != "guest"){
+
+      this.loginForm.patchValue(
+        {
+          runnerName: runner.runnerName,
+          email: runner.email,
+          password: runner.password
+        }
+      )
+    }
+  }
+
+  sendToRegister(){
+    this.router.navigate(['/register'])
   }
 
 //check if login data was valid, if yes redirects to home page

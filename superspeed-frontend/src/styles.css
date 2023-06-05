@@ -19,6 +19,10 @@ html{
   border-radius: 5px;
 }
 
+.deleteBtn{
+  background-color: lightcoral;
+}
+
 
 button:disabled{
   background-color: palevioletred;
@@ -38,6 +42,10 @@ button:disabled{
   padding: 10px;
   color: darkred;
   width: max-content;
+}
+
+.inputFieldClass{
+  padding: 12px;
 }
 
 .ng-valid[required], .ng-valid.required {

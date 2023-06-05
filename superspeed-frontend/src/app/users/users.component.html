@@ -1,1 +1,3 @@
-<p>this is not very secure, but security is not a requirement</p>
+<div *ngFor="let runner of runnerApiService.runners">
+  <app-user-display [runner]="runner"></app-user-display>
+</div>

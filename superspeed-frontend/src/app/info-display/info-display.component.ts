@@ -123,6 +123,7 @@ export class InfoDisplayComponent implements OnInit {
     }
   }
 
+  //set approved to 1 (approved)
   approveAction(speedrun:Speedrun){
     let newSpeedrun = {gameId: speedrun.gameId, runnerId: speedrun.runnerId, catId:speedrun.catId,
       runId:speedrun.runId, timeScore:speedrun.timeScore, runDate: speedrun.runDate, approved: 1};
@@ -130,6 +131,7 @@ export class InfoDisplayComponent implements OnInit {
     this.update()
   }
 
+  //set dissapproved to 0 (not approved)
   disapproveAction(speedrun:Speedrun){
     let newSpeedrun = {gameId: speedrun.gameId, runnerId: speedrun.runnerId, catId:speedrun.catId,
       runId:speedrun.runId, timeScore:speedrun.timeScore, runDate: speedrun.runDate, approved: 0};
@@ -142,9 +144,15 @@ export class InfoDisplayComponent implements OnInit {
     this.update()
   }
 
+  //disables the button and shows the adding menu with ngIf
   addSpeedrunAction(){
     this.speedrunAdding = true;
     this.update()
+  }
+
+  //cancels the creation
+  cancelAction(){
+    this.speedrunAdding = false;
   }
 
   submitSpeedrunAction(){

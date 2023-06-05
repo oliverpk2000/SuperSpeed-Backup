@@ -4,29 +4,67 @@
     <p>runnerName: {{runner.runnerName}}</p>
     <p>email: {{runner.email}}</p>
     <p>password: {{runner.password}}</p>
-    <p>dateJoined: {{runner.dateJoined}}</p>
+    <p>dateJoined: {{runner.dateJoined | date}}</p>
     <p>Adminflag: {{runner.adminFlag}}</p>
   </div>
 
   <form *ngIf="editing" [formGroup]="runnerForm" (ngSubmit)="submitChanges()">
-    <label for="runnerName">Runner Name</label>
-    <input id="runnerName" formControlName="runnerName" class="selectionsClass" [value]="runner.runnerName">
+    <label for="runnerName">Runner Name</label><br>
+    <input id="runnerName" formControlName="runnerName" class="inputFieldClass"><br>
+    <div *ngIf="runnerName.invalid && (runnerName.dirty || runnerName.touched)" class="errorClass">
+      <div *ngIf="runnerName.value === '' ">
+        Runnername must be set
+      </div>
+      <div *ngIf="runnerName.errors?.['minlength']">
+        Runnername must be at least {{ runnerName.errors['minlength']['requiredLength']}} long
+      </div>
+    </div>
+
+    <label for="email">Email</label><br>
+    <input id="email" formControlName="email" class="inputFieldClass"><br>
+    <div *ngIf="email.invalid && (email.dirty || email.touched)" class="errorClass">
+      <div *ngIf="email.value === '' ">
+        Email must be set
+      </div>
+      <div *ngIf="email.errors?.['email']">
+        Email must match email format
+      </div>
+    </div>
 
 
-    <label for="email">Runner Name</label>
-    <input id="email" formControlName="email" class="selectionsClass" [value]="runner.email">
+    <label for="password">Password</label><br>
+    <input id="password" formControlName="password" class="inputFieldClass"><br>
+    <div *ngIf="password.invalid && (password.dirty || password.touched)" class="errorClass">
+      <div *ngIf="password.value === '' ">
+        Password must be set
+      </div>
+      <div *ngIf="password.errors?.['minlength']">
+        Password must be at least {{ password.errors['minlength']['requiredLength']}} long
+      </div>
+    </div>
 
-    <label for="password">Runner Name</label>
-    <input id="password" formControlName="password" class="selectionsClass" [value]="runner.password">
 
-    <label for="dateJoined">Runner Name</label>
-    <input id="dateJoined" type="date" formControlName="dateJoined" class="selectionsClass" [value]="runner.dateJoined">
+    <label for="dateJoined">dateJoined</label><br>
+    <input id="dateJoined" type="date" formControlName="dateJoined" class="inputFieldClass"><br>
+    <div *ngIf="dateJoined.invalid && (dateJoined.dirty || dateJoined.touched)" class="errorClass">
+      <div *ngIf="dateJoined.errors?.['invalidDate']">
+        Date of publishment can not be in the future and {{dateJoined.errors['invalidDate'] | date}} does not meet the criteria
+      </div>
+    </div>
 
-    <label for="adminFlag">Runner Name</label>
-    <input id="adminFlag" formControlName="adminFlag" class="selectionsClass" [value]="runner.adminFlag">
 
-    <button type="submit" class="selectionsClass">Submit Changes</button>
-    <button type="reset" class="selectionsClass">Reset</button>
+    <label for="adminFlag">Adminflag</label><br>
+    <input id="adminFlag" formControlName="adminFlag" class="inputFieldClass"><br>
+    <div *ngIf="adminFlag.invalid && (adminFlag.dirty || adminFlag.touched)" class="errorClass">
+      <div *ngIf="adminFlag.errors?.['pattern']">
+        Adminflag must be 0 or 1
+      </div>
+    </div>
+
+
+    <button type="submit" class="selectionsClass" [disabled]="!runnerForm.valid">Submit Changes</button>
+    <button type="reset" class="selectionsClass">Clear</button>
+    <button class="selectionsClass" (click)="cancelAction()">Cancel</button>
   </form>
 
   <button (click)="editEvent()" [disabled]="editing" class="selectionsClass">Edit</button>
