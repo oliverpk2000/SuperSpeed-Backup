@@ -8,6 +8,8 @@ import {ContentApiService} from "../../content-api.service";
   templateUrl: './game-display.component.html',
   styleUrls: ['./game-display.component.css']
 })
+
+/** Written by Tobias Sprecher */
 export class GameDisplayComponent implements OnInit {
   //input des games was ausgegeben werden soll im html
   @Input() game:Game = {gameId:0, gameName: "", datePublished: new Date()};

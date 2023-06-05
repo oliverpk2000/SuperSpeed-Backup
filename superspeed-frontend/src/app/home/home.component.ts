@@ -8,6 +8,7 @@ import {Game} from "../objects/game";
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
+/** Written by Tobias Sprecher */
 export class HomeComponent implements OnInit {
 
   constructor(public loginManager: LoginManagementService, public contentApiService:ContentApiService) {}

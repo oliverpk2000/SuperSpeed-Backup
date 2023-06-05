@@ -9,6 +9,7 @@ import {ContentApiService} from "../content-api.service";
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
+/**Written by Tobias Sprecher*/
 export class ProfileComponent implements OnInit {
   runner: Runner = {runnerId: -1, runnerName: '', email: '', dateJoined: new Date(), adminFlag: 0, password: ''};
   inChange: boolean = false;

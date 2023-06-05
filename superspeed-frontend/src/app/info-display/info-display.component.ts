@@ -6,6 +6,8 @@ import {Speedrun} from "../objects/speedrun";
 import {Runner} from "../objects/runner";
 import {forkJoin} from "rxjs";
 import {Category} from "../objects/category";
+import {LoginManagementService} from "../login-management.service";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-info-display',
@@ -24,8 +26,17 @@ export class InfoDisplayComponent implements OnInit {
   approvedVal: string = "app";
   categoryVal: number = 0;
 
+  speedrunAdding:boolean = false
 
-  constructor(public contentApiService: ContentApiService, private route: ActivatedRoute) {
+
+  timeForm = new FormGroup({
+    //i cant really explain the regex but d{n} means n*number or something and :\ means : so it requires NN:NN:NN:NNN
+    timeInput: new FormControl('', [Validators.required, Validators.pattern(/^\d{2}:\d{2}:\d{2}:\d{3}$/)]),
+    dateInput: new FormControl(new Date(), [Validators.required]),
+    categorySelect: new FormControl(0, Validators.required)
+  })
+
+  constructor(public contentApiService: ContentApiService, public loginManager:LoginManagementService, private route: ActivatedRoute) {
   }
 
   //Activated route to read from the URL
@@ -36,21 +47,26 @@ export class InfoDisplayComponent implements OnInit {
       //getting the game, with this gameId
       this.contentApiService.getGame(gameId).subscribe((res) => {
         this.game = res;
-      });
-      //getting speedruns, that have the same gameId as this game
-      this.contentApiService.getAllSpeedrunsWithGameId(gameId).subscribe((res) => {
-        res.forEach(speedrun => speedrun.runDate = new Date(speedrun.runDate))
-        this.speedruns = res;
-        //making map of all speedruns and their runner;
-        this.getRunnersForSpeedun();
-      });
-      //getting all the categories
-      this.contentApiService.getAllCategories().subscribe((res) => {
-        this.categories = res;
+        //inside this subscribe to ensure that it is not executed before the game is fetched
+        this.update()
       });
     })
+
   }
 
+  update(){
+    //getting speedruns, that have the same gameId as this game
+    this.contentApiService.getAllSpeedrunsWithGameId(this.game.gameId).subscribe((res) => {
+      res.forEach(speedrun => speedrun.runDate = new Date(speedrun.runDate))
+      this.speedruns = res;
+      //making map of all speedruns and their runner;
+      this.getRunnersForSpeedun();
+    });
+    //getting all the categories
+    this.contentApiService.getAllCategories().subscribe((res) => {
+      this.categories = res;
+    });
+  }
 
   // function to get the runner of a speedrun of this game speedrun
   // this function is this complicated, because of the async the programm could acces the map before all the values are present in the map
@@ -81,9 +97,9 @@ export class InfoDisplayComponent implements OnInit {
     } else if (this.sortingVal === "stf") {
       this.speedruns.sort((speedrun1: Speedrun, speedrun2: Speedrun) => speedrun2.timeScore - speedrun1.timeScore);
     } else if (this.sortingVal === "nto") {
-      this.speedruns.sort((speedrun1: Speedrun, speedrun2: Speedrun) => speedrun1.runDate.getTime() - speedrun2.runDate.getTime());
-    } else if (this.sortingVal === "otn") {
       this.speedruns.sort((speedrun1: Speedrun, speedrun2: Speedrun) => speedrun2.runDate.getTime() - speedrun1.runDate.getTime());
+    } else if (this.sortingVal === "otn") {
+      this.speedruns.sort((speedrun1: Speedrun, speedrun2: Speedrun) => speedrun1.runDate.getTime() - speedrun2.runDate.getTime());
     }
   }
 
@@ -100,5 +116,48 @@ export class InfoDisplayComponent implements OnInit {
       let appCatRuns = catRuns.filter((speedrun) => speedrun.approved === 0);
       return appCatRuns;
     }
+  }
+
+  approveAction(speedrun:Speedrun){
+    let newSpeedrun = {gameId: speedrun.gameId, runnerId: speedrun.runnerId, catId:speedrun.catId,
+      runId:speedrun.runId, timeScore:speedrun.timeScore, runDate: speedrun.runDate, approved: 1};
+    this.contentApiService.updateSpeedruns(newSpeedrun).subscribe();
+    this.update()
+  }
+
+  disapproveAction(speedrun:Speedrun){
+    let newSpeedrun = {gameId: speedrun.gameId, runnerId: speedrun.runnerId, catId:speedrun.catId,
+      runId:speedrun.runId, timeScore:speedrun.timeScore, runDate: speedrun.runDate, approved: 0};
+    this.contentApiService.updateSpeedruns(newSpeedrun).subscribe();
+    this.update()
+  }
+
+  deleteAction(speedrun:Speedrun){
+    this.contentApiService.deleteSpeedrun(speedrun).subscribe();
+    this.update()
+  }
+
+  addSpeedrunAction(){
+    this.speedrunAdding = true;
+    this.update()
+  }
+
+  submitSpeedrunAction(){
+    //getting the timeInput from the formgroup and turning it into milliseconds
+    const timeValue = this.timeForm.get('timeInput').value;
+    const times = timeValue.split(':').map(Number);
+    const totalMilliseconds = (times[0] * 60 * 60 * 1000) + (times[1] * 60 * 1000) + (times[2] * 1000) + times[3];
+    //getting the category from the select in the form
+    const categoryId = this.timeForm.get('categorySelect').value;
+    //getting the date from the input in the form
+    const date = this.timeForm.get('dateInput').value;
+    //runId will be replaced anyway so just set it 0
+    const newSpeedrun = {gameId:this.game.gameId, runnerId: this.loginManager.getRunner().runnerId, catId: categoryId,
+      runId: 0, timeScore: totalMilliseconds, runDate:date, approved: 0}
+    //creating new speedrun in the backend
+    this.contentApiService.postSpeedrun(newSpeedrun).subscribe();
+    //updating the speedrunlist, so that the changes can be seen without reloading the page
+    this.update();
+    this.speedrunAdding = false;
   }
 }
