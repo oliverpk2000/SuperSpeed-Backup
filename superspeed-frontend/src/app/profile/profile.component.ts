@@ -31,7 +31,6 @@ export class ProfileComponent implements OnInit {
       //getting the runner, with this runnerId
       this.contentApiService.getrunner(runnerId).subscribe((res) => {
         this.runner = res;
-        console.log("profile component: ", this.runner);
         this.runnerName = this.runner.runnerName;
         this.email = this.runner.email;
         this.password = this.runner.password;
@@ -48,7 +47,6 @@ export class ProfileComponent implements OnInit {
       runnerId: this.runner.runnerId, runnerName: this.runnerName,
       email: this.email, password: this.password, dateJoined: this.runner.dateJoined, adminFlag: this.runner.adminFlag
     }
-    console.log(changedRunner)
     this.contentApiService.updaterunner(changedRunner).subscribe();
     this.inChange = false;
     this.update()

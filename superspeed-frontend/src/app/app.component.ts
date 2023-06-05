@@ -26,21 +26,16 @@ export class AppComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
-    console.log("app component (user): ", this.user);
     const runnerId = this.user.runnerId;
     this.profileLink = "http://localhost:4200/profile/" + runnerId;
-    console.log("app component (profilelink): ", this.profileLink);
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log("app component (onchanges) user: ", this.user);
     this.user = this.loginManager.getRunner();
   }
 
   navigateToHome() {
     this.ngOnInit();
-    console.log(this.loginManager.getGuestState())
-    console.log("app component: ", this.loginManager.getRunner());
     this.loginManager.login();
   }
 }

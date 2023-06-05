@@ -76,7 +76,6 @@ export class LoginComponent implements OnInit {
     }
 
     if (runner1.email !== runner2.email) {
-      console.log("emails: " + runner1.email === runner2.email);
       return false;
     }
     return runner1.password == runner2.password;
