@@ -1,0 +1,4 @@
+<div *ngFor="let split of splits; ">
+  <p>{{split}}: {{time | timeFormat}} <button *ngIf="currentSplit == 0" (click)="pauseTimer()">pause</button></p>
+</div>
+<button *ngIf="splits.length > 0" (click)="startTimer()">start</button>

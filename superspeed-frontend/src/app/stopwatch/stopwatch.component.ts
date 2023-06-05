@@ -20,20 +20,24 @@ export class StopwatchComponent implements OnInit {
   user: Runner = {runnerId: 0, runnerName: "", email: "", dateJoined: new Date(), password: "", adminFlag: 0}
   games: Game[] = [];
   categories: Category[] = [];
-  runData: Speedrun = {gameId:0, runnerId:0, catId:0, runId:0, timeScore:0, runDate:new Date(), approved:0}
+  runData: Speedrun = {gameId:-1, runnerId:-1, catId:-1, runId:0, timeScore:0, runDate:new Date(), approved:0}
+  setupDone: boolean = false;
 
   speedrunDataForm = new FormGroup({
     gameId: new FormControl(0, [Validators.required]),
-    runnerId: new FormControl(this.user.runnerId),
+    runnerId: new FormControl(0),
     catId: new FormControl(0, [Validators.required]),
     runId: new FormControl(0),
     timescore: new FormControl(0),
     runDate: new FormControl(new Date()),
     approved: new FormControl(0)
   });
+  splits: string[] = []
+  split: string = "";
 
   ngOnInit(): void {
     this.user = this.loginManager.getRunner();
+    console.log(this.user);
     this.getAllGames();
     this.getAllCategories()
 
@@ -48,7 +52,17 @@ export class StopwatchComponent implements OnInit {
   }
 
   submit() {
+    //scuffed
+    this.speedrunDataForm.patchValue({
+      runnerId:this.user.runnerId
+    })
     this.runData = this.speedrunDataForm.value as Speedrun;
     console.log(this.runData);
+    this.setupDone = true;
+  }
+
+  addSplit() {
+    this.splits.push(this.split);
+    this.split = "";
   }
 }

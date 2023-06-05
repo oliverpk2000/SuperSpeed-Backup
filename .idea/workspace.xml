@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f1951cbe-2151-4de5-97de-e2fc4c34694b" name="Changes" comment="logout glitch fixed">
+    <list default="true" id="f1951cbe-2151-4de5-97de-e2fc4c34694b" name="Changes" comment="minor stopwatch form fixes">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_05_2023_15_19__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_05_2023_15_19__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/superspeed-frontend/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/superspeed-frontend/src/app/app.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/superspeed-frontend/src/app/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/superspeed-frontend/src/app/login/login.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/superspeed-frontend/src/app/profile/profile.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/superspeed-frontend/src/app/profile/profile.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/superspeed-frontend/src/app/stopwatch/stopwatch.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/superspeed-frontend/src/app/stopwatch/stopwatch.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/superspeed-frontend/src/app/stopwatch/stopwatch.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/superspeed-frontend/src/app/stopwatch/stopwatch.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/superspeed-frontend/src/app/stopwatch/stopwatch.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/superspeed-frontend/src/app/stopwatch/stopwatch.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/superspeed-frontend/src/app/stopwatch/timer/timer.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/superspeed-frontend/src/app/stopwatch/timer/timer.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/superspeed-frontend/src/app/stopwatch/timer/timer.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/superspeed-frontend/src/app/stopwatch/timer/timer.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +43,7 @@
     "nodejs_interpreter_path": "node",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "preferences.lookFeel",
-    "ts.external.directory.path": "C:\\Users\\User\\WebstormProjects\\SuperSpeed\\superspeed-backend\\node_modules\\typescript\\lib",
+    "ts.external.directory.path": "E:\\school\\SuperSpeed\\superspeed-backend\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -207,7 +206,21 @@
       <option name="project" value="LOCAL" />
       <updated>1685950586781</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="data form for stopwatch finished">
+      <created>1685959042798</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1685959042798</updated>
+    </task>
+    <task id="LOCAL-00014" summary="minor stopwatch form fixes">
+      <created>1685961557520</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1685961557520</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -238,6 +251,8 @@
     <MESSAGE value="guest login done, commented code" />
     <MESSAGE value="started stopwatch" />
     <MESSAGE value="logout glitch fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="logout glitch fixed" />
+    <MESSAGE value="data form for stopwatch finished" />
+    <MESSAGE value="minor stopwatch form fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="minor stopwatch form fixes" />
   </component>
 </project>
