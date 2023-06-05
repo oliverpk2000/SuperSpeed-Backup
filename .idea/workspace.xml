@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f1951cbe-2151-4de5-97de-e2fc4c34694b" name="Changes" comment="data form for stopwatch finished">
+    <list default="true" id="f1951cbe-2151-4de5-97de-e2fc4c34694b" name="Changes" comment="minor stopwatch form fixes">
+      <change afterPath="$PROJECT_DIR$/superspeed-frontend/src/app/stopwatch/timer/timer.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/superspeed-frontend/src/app/stopwatch/timer/timer.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/superspeed-frontend/src/app/stopwatch/timer/timer.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/superspeed-frontend/src/app/stopwatch/timer/timer.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/superspeed-frontend/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/superspeed-frontend/src/app/app.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/superspeed-frontend/src/app/stopwatch/stopwatch.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/superspeed-frontend/src/app/stopwatch/stopwatch.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/superspeed-frontend/src/app/stopwatch/stopwatch.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/superspeed-frontend/src/app/stopwatch/stopwatch.component.ts" afterDir="false" />
     </list>
@@ -210,7 +215,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685959042798</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="minor stopwatch form fixes">
+      <created>1685961557520</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1685961557520</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -242,6 +254,7 @@
     <MESSAGE value="started stopwatch" />
     <MESSAGE value="logout glitch fixed" />
     <MESSAGE value="data form for stopwatch finished" />
-    <option name="LAST_COMMIT_MESSAGE" value="data form for stopwatch finished" />
+    <MESSAGE value="minor stopwatch form fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="minor stopwatch form fixes" />
   </component>
 </project>

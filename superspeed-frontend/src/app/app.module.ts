@@ -14,6 +14,7 @@ import {TimeFormatPipe} from "./display comps/time-format.pipe";
 import {GameDisplayComponent} from "./display comps/game-display/game-display.component";
 import { ProfileComponent } from './profile/profile.component';
 import { StopwatchComponent } from './stopwatch/stopwatch.component';
+import { TimerComponent } from './stopwatch/timer/timer.component';
 //write routes here if you want to add page
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -35,7 +36,8 @@ const routes: Routes = [
     InfoDisplayComponent,
     TimeFormatPipe,
     ProfileComponent,
-    StopwatchComponent
+    StopwatchComponent,
+    TimerComponent
   ],
   imports: [
     BrowserModule,
