@@ -1,5 +1,4 @@
 <h1>Home page</h1>
-<button (click)="logout()" class="selectionsClass">logout</button>
 <br>
 <div *ngIf="loginManager.getGuestState()"><p>you are logged in as a guest</p></div>
 <div *ngIf="loginManager.checkLoginState()"><p>you are logged in as {{loginManager.getRunner().runnerName}}</p></div>
@@ -10,17 +9,33 @@
 <br>
 <div>
   <br>
-  <input type="text" name="searchbar" if="searchbar" class="form-control" [(ngModel)]="searchbarVal"
-         placeholder="Search for games...">
-  <div id="admingControl" *ngIf="loginManager.getRunner().adminFlag===1">
-    <input type="text" class="form-control" [(ngModel)]="gameName">
-    <input type="date" class="form-control" [(ngModel)]="releaseDate">
-    <button (click)="addGame()" class="selectionsClass">Add Game</button>
-  </div>
+  <input type="text" name="searchbar" if="searchbar" class="form-control" [(ngModel)]="searchbarVal" placeholder="Search for games...">
+  <br>
+
+  <form id="admingControl" *ngIf="loginManager.getRunner().adminFlag===1" [formGroup]="gameForm" (ngSubmit)="addGame()">
+    <label for="gameNameInput">Game Name:</label>
+    <input id="gameNameInput" formControlName="gameNameInput" type="text" class="form-control"><br>
+    <div *ngIf="gameNameInput.invalid && (gameNameInput.dirty || gameNameInput.touched)" class="errorClass">
+      <div *ngIf="gameNameInput.value === '' ">
+        Gamename must be set
+      </div>
+    </div>
+
+    <label for="datePublishedInput">date of publishment:</label>
+    <input id="datePublishedInput" formControlName="datePublishedInput" type="date" class="form-control"><br>
+    <div *ngIf="datePublishedInput.invalid && (datePublishedInput.dirty || datePublishedInput.touched)" class="errorClass">
+      <div *ngIf="datePublishedInput.errors?.['invalidDate']">
+        Date of publishment can not be in the future and {{datePublishedInput.errors['invalidDate'] | date}} does not meet the criteria
+      </div>
+    </div>
+
+    <button type="submit" class="selectionsClass">Add Game</button>
+    <button type="reset" class="selectionsClass">Reset</button>
+  </form>
+
   <br>
   <h1>Games</h1>
   <div *ngFor="let game of matchSearch()" id="games">
-    <app-game-display [routerLink]="['/home/game/',game.gameId]" [game]="game"
-                      (updateCall)="update()"></app-game-display>
+    <app-game-display [routerLink]="['/home/game/',game.gameId]" [game]="game"></app-game-display>
   </div>
 </div>

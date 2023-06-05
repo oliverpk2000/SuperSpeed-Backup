@@ -9,6 +9,7 @@
         <a [routerLink]="profileLink">Profile</a>
         <a [routerLink]="login">Logout</a>
         <a [routerLink]="stopwatch">Stopwatch</a>
+        <a *ngIf="loginManager.getRunner().adminFlag===1" [routerLink]="users">users</a>
       </div>
     </div>
 </div>

@@ -1,7 +1,9 @@
-<button id="changeBtn" class="selectionsClass" (click)="changeEvent()" [disabled]="inChange">Change Information</button>
-<button id="applyBtn" class="selectionsClass" (click)="applyEvent()" [disabled]="!inChange">Apply Changes</button>
+<button *ngIf="loginManager.getRunner().runnerId!==-1" id="changeBtn" class="selectionsClass" (click)="changeEvent()" [disabled]="inChange">Change Information</button>
+<button *ngIf="loginManager.getRunner().runnerId!==-1" id="applyBtn" class="selectionsClass" (click)="applyEvent()" [disabled]="!inChange">Apply Changes</button>
 
-<div id="outerBox">
+<div id="outerBox" *ngIf="loginManager.getRunner().runnerId!==-1">
+
+
   <div class="innerBox">
     <h1>runnerId</h1>
     <br>
@@ -41,4 +43,8 @@
     <br>
     <p>{{runner.adminFlag}}</p>
   </div>
+</div>
+
+<div *ngIf="loginManager.getRunner().runnerId === -1">
+  <h1>You are logged in as guest</h1>
 </div>
