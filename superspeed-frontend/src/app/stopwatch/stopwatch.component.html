@@ -10,15 +10,15 @@
 
     <div class="form-part">
       <label for="game">game: </label>
-      <select class="form-control" id="game">
-        <option *ngFor="let game of games" [value]="game.gameId">{{game.gameName}}</option>
+      <select class="form-control" id="game" formControlName="gameId">
+        <option *ngFor="let game of games" [ngValue]="game.gameId" [id]="game.gameId">{{game.gameName}}</option>
       </select>
     </div>
 
     <div class="form-part">
       <label for="category">categories: </label>
-      <select class="form-control" id="category">
-        <option *ngFor="let category of categories" [value]="category.catId">
+      <select class="form-control" id="category" formControlName="catId">
+        <option *ngFor="let category of categories" [ngValue]="category.catId" [id]="category.catId">
         {{category.catName}}
         </option>
       </select>
