@@ -8,7 +8,7 @@ import {handleError} from "../publicFunctions";
   providedIn: 'root'
 })
 export class CategoryApiService {
-  baseUrl: string = "http://localhost:7000/api/superspeed/category";
+  baseUrl: string = "http://localhost:7000/api/superspeed/category/";
   categories:Category[] = [];
 
   constructor(private httpClient: HttpClient) {

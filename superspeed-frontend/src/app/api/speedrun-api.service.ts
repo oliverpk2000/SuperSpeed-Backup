@@ -11,7 +11,7 @@ import {handleError} from "../publicFunctions";
   providedIn: 'root'
 })
 export class SpeedrunApiService {
-  baseUrl: string = "http://localhost:7000/api/superspeed/speedrun";
+  baseUrl: string = "http://localhost:7000/api/superspeed/speedrun/";
   speedruns:Speedrun[] = []
 
   constructor(private httpClient: HttpClient) {

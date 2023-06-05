@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f1951cbe-2151-4de5-97de-e2fc4c34694b" name="Changes" comment="what the heeeeeel">
+    <list default="true" id="f1951cbe-2151-4de5-97de-e2fc4c34694b" name="Changes" comment="what the heeeeeel 2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/superspeed-frontend/src/app/stopwatch/stopwatch.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/superspeed-frontend/src/app/stopwatch/stopwatch.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/superspeed-frontend/src/app/api/category-api.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/superspeed-frontend/src/app/api/category-api.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/superspeed-frontend/src/app/api/speedrun-api.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/superspeed-frontend/src/app/api/speedrun-api.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -237,7 +238,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685982264336</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="what the heeeeeel 2">
+      <created>1685982284621</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1685982284621</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -273,6 +281,7 @@
     <MESSAGE value="started splits" />
     <MESSAGE value="finished split timer" />
     <MESSAGE value="what the heeeeeel" />
-    <option name="LAST_COMMIT_MESSAGE" value="what the heeeeeel" />
+    <MESSAGE value="what the heeeeeel 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="what the heeeeeel 2" />
   </component>
 </project>
