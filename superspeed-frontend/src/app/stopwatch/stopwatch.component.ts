@@ -21,6 +21,7 @@ export class StopwatchComponent implements OnInit {
   games: Game[] = [];
   categories: Category[] = [];
   runData: Speedrun = {gameId:-1, runnerId:-1, catId:-1, runId:0, timeScore:0, runDate:new Date(), approved:0}
+  setupDone: boolean = false;
 
   speedrunDataForm = new FormGroup({
     gameId: new FormControl(0, [Validators.required]),
@@ -55,5 +56,6 @@ export class StopwatchComponent implements OnInit {
     })
     this.runData = this.speedrunDataForm.value as Speedrun;
     console.log(this.runData);
+    this.setupDone = true;
   }
 }
